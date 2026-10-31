@@ -1,0 +1,29 @@
+id: explicit-euler-stability-region
+area: ode-stability
+title: The explicit Euler stability region, and why accuracy does not imply stability
+difficulty: undergraduate
+claim_type: universal
+proof_method: analytic
+summary: >
+  Derive the stability region |1 + h lambda| <= 1 for explicit Euler, show it is
+  the disc of radius 1 centred at -1, and work out the step restriction it
+  imposes on a stiff system. Then separate two ideas that are routinely
+  confused: local truncation error, which is O(h^2) for every h, and absolute
+  stability, which fails discontinuously at h|lambda| = 2.
+tags: [explicit-euler, absolute-stability, stiffness, truncation-error]
+flawed:
+  - name: small-error-means-stable
+    summary: Argues the method is fine because the local truncation error is O(h^2).
+    breaks_at: >
+      The step treating a bound on the error committed in one step as a bound
+      on the accumulated error. The accumulated error is multiplied by
+      (1 + h lambda)^n, and when that factor exceeds 1 in modulus the local
+      errors are amplified rather than averaged.
+    failure_mode: local-error-vs-global-stability
+  - name: stiffness-is-about-accuracy
+    summary: Claims a smaller step is needed on a stiff problem for accuracy reasons.
+    breaks_at: >
+      The diagnosis. On a stiff problem the fast mode has already decayed to
+      nothing and contributes no error; the step restriction exists purely to
+      keep the dead mode from being amplified.
+    failure_mode: wrong-cause-right-remedy

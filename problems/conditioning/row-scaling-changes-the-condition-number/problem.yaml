@@ -1,0 +1,28 @@
+id: row-scaling-changes-the-condition-number
+area: conditioning
+title: The condition number is not a property of the linear map
+difficulty: graduate
+claim_type: mixed
+proof_method: analytic-with-witness
+summary: >
+  Show that kappa_2(DA) can be made arbitrarily large or small by a diagonal D,
+  so kappa is a property of the matrix as written rather than of the underlying
+  map. State van der Sluis's theorem bounding how much row equilibration can
+  achieve, and explain what survives: a quantity that really is invariant.
+tags: [scaling, equilibration, van-der-sluis, skeel]
+flawed:
+  - name: conditioning-is-intrinsic
+    summary: Argues kappa measures the difficulty of the problem itself.
+    breaks_at: >
+      Step 2, which treats Ax = b and (DA)x = Db as the same problem because
+      they have the same solution set. They do have the same solution, and the
+      perturbations that a floating-point solver commits are different, which
+      is what kappa measures.
+    failure_mode: conflating-problem-with-representation
+  - name: equilibration-is-optimal
+    summary: Claims row equilibration minimises the condition number.
+    breaks_at: >
+      The final step. Van der Sluis gives a factor-of-n guarantee, not
+      optimality; the minimising diagonal is generally different, and finding it
+      is itself a nontrivial optimisation.
+    failure_mode: bound-read-as-optimality

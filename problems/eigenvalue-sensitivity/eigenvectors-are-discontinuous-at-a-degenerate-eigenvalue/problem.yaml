@@ -1,0 +1,27 @@
+id: eigenvectors-are-discontinuous-at-a-degenerate-eigenvalue
+area: eigenvalue-sensitivity
+title: Eigenvalues are continuous; eigenvectors are not
+difficulty: undergraduate
+claim_type: existential
+proof_method: analytic-with-witness
+summary: >
+  Eigenvalues depend continuously on the matrix entries, for every matrix.
+  Eigenvectors do not: at a degenerate eigenvalue the eigenvector depends on
+  the direction of approach, and two perturbations of the identical (vanishing)
+  size give eigenvectors 45 degrees apart no matter how small the perturbation.
+tags: [continuity, degenerate-eigenvalue, eigenvector, invariant-subspace]
+flawed:
+  - name: eigenvectors-inherit-continuity
+    summary: Argues eigenvectors are continuous because they solve a continuous linear system.
+    breaks_at: >
+      The step asserting that the null space of (A - lambda I) depends
+      continuously on A. The null space jumps in dimension at a degenerate
+      eigenvalue, and selecting a vector from a two-dimensional space is not a
+      continuous operation.
+    failure_mode: continuity-of-a-set-valued-map
+  - name: normalise-to-fix-it
+    summary: Claims the discontinuity is the sign/scale ambiguity and normalisation removes it.
+    breaks_at: >
+      The identification of the problem with the +-1 ambiguity. The two limits
+      here are 45 degrees apart, which no choice of sign or phase reconciles.
+    failure_mode: wrong-diagnosis

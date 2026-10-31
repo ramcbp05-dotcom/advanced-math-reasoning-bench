@@ -1,0 +1,144 @@
+{
+  "generated_at": "2026-10-31T21:58:08+00:00",
+  "n_problems": 13,
+  "n_passed": 13,
+  "total_checks": 112,
+  "total_failed": 0,
+  "by_area": {
+    "conditioning": {
+      "problems": 5,
+      "checks": 41,
+      "failed": 0
+    },
+    "eigenvalue-sensitivity": {
+      "problems": 5,
+      "checks": 42,
+      "failed": 0
+    },
+    "ode-stability": {
+      "problems": 3,
+      "checks": 29,
+      "failed": 0
+    }
+  },
+  "failures": [],
+  "results": [
+    {
+      "problem_id": "cond2-is-singular-value-ratio",
+      "area": "conditioning",
+      "passed": true,
+      "returncode": 0,
+      "duration_sec": 0.34,
+      "n_checks": 8,
+      "n_failed": 0
+    },
+    {
+      "problem_id": "eigenvalues-do-not-determine-the-condition-number",
+      "area": "conditioning",
+      "passed": true,
+      "returncode": 0,
+      "duration_sec": 0.24,
+      "n_checks": 8,
+      "n_failed": 0
+    },
+    {
+      "problem_id": "hilbert-matrix-exponential-growth",
+      "area": "conditioning",
+      "passed": true,
+      "returncode": 0,
+      "duration_sec": 0.42,
+      "n_checks": 10,
+      "n_failed": 0
+    },
+    {
+      "problem_id": "normal-equations-square-the-condition",
+      "area": "conditioning",
+      "passed": true,
+      "returncode": 0,
+      "duration_sec": 0.34,
+      "n_checks": 7,
+      "n_failed": 0
+    },
+    {
+      "problem_id": "row-scaling-changes-the-condition-number",
+      "area": "conditioning",
+      "passed": true,
+      "returncode": 0,
+      "duration_sec": 0.37,
+      "n_checks": 8,
+      "n_failed": 0
+    },
+    {
+      "problem_id": "bauer-fike-and-when-it-says-nothing",
+      "area": "eigenvalue-sensitivity",
+      "passed": true,
+      "returncode": 0,
+      "duration_sec": 0.29,
+      "n_checks": 9,
+      "n_failed": 0
+    },
+    {
+      "problem_id": "eigenvalue-condition-number-is-one-over-the-inner-product",
+      "area": "eigenvalue-sensitivity",
+      "passed": true,
+      "returncode": 0,
+      "duration_sec": 0.25,
+      "n_checks": 9,
+      "n_failed": 0
+    },
+    {
+      "problem_id": "eigenvectors-are-discontinuous-at-a-degenerate-eigenvalue",
+      "area": "eigenvalue-sensitivity",
+      "passed": true,
+      "returncode": 0,
+      "duration_sec": 0.21,
+      "n_checks": 8,
+      "n_failed": 0
+    },
+    {
+      "problem_id": "hermitian-eigenvalues-are-perfectly-conditioned",
+      "area": "eigenvalue-sensitivity",
+      "passed": true,
+      "returncode": 0,
+      "duration_sec": 0.24,
+      "n_checks": 8,
+      "n_failed": 0
+    },
+    {
+      "problem_id": "jordan-block-perturbation-is-epsilon-to-the-one-over-n",
+      "area": "eigenvalue-sensitivity",
+      "passed": true,
+      "returncode": 0,
+      "duration_sec": 0.23,
+      "n_checks": 8,
+      "n_failed": 0
+    },
+    {
+      "problem_id": "explicit-euler-stability-region",
+      "area": "ode-stability",
+      "passed": true,
+      "returncode": 0,
+      "duration_sec": 0.22,
+      "n_checks": 9,
+      "n_failed": 0
+    },
+    {
+      "problem_id": "linearization-is-inconclusive-at-the-critical-case",
+      "area": "ode-stability",
+      "passed": true,
+      "returncode": 0,
+      "duration_sec": 0.49,
+      "n_checks": 10,
+      "n_failed": 0
+    },
+    {
+      "problem_id": "trapezoidal-is-a-stable-but-not-l-stable",
+      "area": "ode-stability",
+      "passed": true,
+      "returncode": 0,
+      "duration_sec": 0.23,
+      "n_checks": 10,
+      "n_failed": 0
+    }
+  ]
+}

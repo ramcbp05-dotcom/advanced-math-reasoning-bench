@@ -1,0 +1,29 @@
+id: linearization-is-inconclusive-at-the-critical-case
+area: ode-stability
+title: Linearisation decides nothing when the linear part is marginal
+difficulty: undergraduate
+claim_type: mixed
+proof_method: analytic-with-witness
+summary: >
+  Lyapunov's first method settles stability when every eigenvalue of the
+  Jacobian has nonzero real part, and says nothing when any has real part zero.
+  The pair x' = -x^3 and x' = +x^3 have identical linearisations and opposite
+  stability -- one asymptotically stable, the other blowing up in finite time.
+tags: [lyapunov-first-method, hyperbolic, critical-case, finite-time-blowup]
+flawed:
+  - name: zero-eigenvalue-means-neutral
+    summary: Concludes that a zero eigenvalue implies neutral stability.
+    breaks_at: >
+      The inference from "the linear part is neutral" to "the system is
+      neutral". The linearisation is the zero system for both x' = -x^3 and
+      x' = +x^3, whose behaviours are asymptotic stability and finite-time
+      blow-up.
+    failure_mode: linearisation-outside-its-hypothesis
+  - name: numerical-evidence-settles-it
+    summary: Integrates from several initial conditions and concludes stability.
+    breaks_at: >
+      Treating a finite set of trajectories over a finite horizon as a proof.
+      For x' = x^3 with x(0) = 0.1 the blow-up time is t* = 50; an integration
+      to t = 5 shows x growing from 0.100 to 0.105 and looks like neutral
+      stability.
+    failure_mode: finite-horizon-mistaken-for-asymptotics

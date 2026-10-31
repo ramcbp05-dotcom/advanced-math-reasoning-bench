@@ -1,0 +1,27 @@
+id: cond2-is-singular-value-ratio
+area: conditioning
+title: The 2-norm condition number is the ratio of extreme singular values
+difficulty: undergraduate
+claim_type: mixed
+proof_method: analytic-with-witness
+summary: >
+  Prove kappa_2(A) = sigma_1 / sigma_n for nonsingular A, and settle the two
+  folk beliefs that attach conditioning to the determinant: that a determinant
+  far from zero means a well-conditioned matrix, and that a tiny determinant
+  means an ill-conditioned one. Both are false, and a single 2x2 witness
+  refutes each.
+tags: [svd, condition-number, determinant, operator-norm]
+flawed:
+  - name: determinant-as-proxy
+    summary: Argues kappa(A) is large exactly when det(A) is small.
+    breaks_at: >
+      Step 3, where ||A^{-1}||_2 is replaced by 1/|det A|. That identity holds
+      only for 1x1 matrices; in general A^{-1} = adj(A)/det(A) and the
+      adjugate's norm carries the rest of the story.
+    failure_mode: invalid-identity
+  - name: frobenius-substitution
+    summary: Computes the condition number in the Frobenius norm and reports it as kappa_2.
+    breaks_at: >
+      Step 2, where ||A||_F is identified with sigma_1. In fact
+      ||A||_F = sqrt(sum sigma_i^2), which equals sigma_1 only when the rank is 1.
+    failure_mode: wrong-norm

@@ -1,0 +1,28 @@
+id: bauer-fike-and-when-it-says-nothing
+area: eigenvalue-sensitivity
+title: Bauer-Fike, and the regime where it says nothing
+difficulty: graduate
+claim_type: mixed
+proof_method: analytic-with-witness
+summary: >
+  Prove the Bauer-Fike theorem for diagonalisable A, show it is sharp by
+  exhibiting a case where it is attained, and then show it degenerates: a
+  family with kappa_2(V) -> infinity for which the bound becomes vacuous while
+  the true perturbation stays small, and the defective limit where the theorem
+  has no content at all.
+tags: [bauer-fike, diagonalisable, non-normal, pseudospectra]
+flawed:
+  - name: bound-is-the-answer
+    summary: Reports the Bauer-Fike bound as the size of the eigenvalue shift.
+    breaks_at: >
+      Treating an upper bound as an estimate. The bound can exceed the true
+      shift by kappa_2(V), which is unbounded; reporting 1e+3 when the shift is
+      1e-10 is not a conservative answer, it is no answer.
+    failure_mode: bound-reported-as-estimate
+  - name: bound-applies-to-every-matrix
+    summary: Applies Bauer-Fike to a defective matrix by taking V from numpy.
+    breaks_at: >
+      The step that obtains V. For a defective matrix no eigenbasis exists;
+      numpy returns a numerically computed V that is nearly singular, and the
+      resulting "bound" is a function of rounding error.
+    failure_mode: hypothesis-silently-unverified

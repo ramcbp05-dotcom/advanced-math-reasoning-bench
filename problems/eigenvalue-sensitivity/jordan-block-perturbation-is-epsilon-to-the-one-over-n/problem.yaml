@@ -1,0 +1,28 @@
+id: jordan-block-perturbation-is-epsilon-to-the-one-over-n
+area: eigenvalue-sensitivity
+title: A Jordan block's eigenvalues move like the n-th root of the perturbation
+difficulty: graduate
+claim_type: universal
+proof_method: analytic-with-witness
+summary: >
+  For the n x n nilpotent Jordan block perturbed in the bottom-left corner by
+  eps, the characteristic polynomial is exactly lambda^n - eps, so every
+  eigenvalue has modulus eps^{1/n}. At n = 16 a perturbation of 1e-16 moves the
+  eigenvalues to 0.1 -- an amplification of 1e15, with no eigenvalue condition
+  number to blame, because the matrix is defective.
+tags: [jordan-block, defective, non-normal, root-sensitivity, pseudospectra]
+flawed:
+  - name: first-order-perturbation-theory
+    summary: Applies dlambda = y* E x / (y* x) and predicts a shift of order eps.
+    breaks_at: >
+      The use of first-order perturbation theory at all. The expansion requires
+      a simple eigenvalue; here the eigenvalue has algebraic multiplicity n and
+      geometric multiplicity 1, so the correct expansion is in powers of
+      eps^{1/n} and its leading term is not linear.
+    failure_mode: expansion-invalid-at-a-defective-eigenvalue
+  - name: tiny-perturbation-tiny-effect
+    summary: Argues a 1e-16 perturbation cannot matter because it is at rounding level.
+    breaks_at: >
+      The implicit assumption that the response is proportional to the
+      stimulus. At n = 16 the response to 1e-16 is 1e-1.
+    failure_mode: assumed-linear-response

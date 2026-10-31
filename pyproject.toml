@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "advanced-math-reasoning-bench"
+version = "0.1.0"
+description = "Verified problems in matrix conditioning, eigenvalue sensitivity and ODE stability"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.26", "scipy>=1.11", "sympy>=1.12", "pyyaml>=6.0"]
+
+[project.scripts]
+mathbench = "bench.cli:main"
+
+[tool.setuptools]
+packages = ["bench"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

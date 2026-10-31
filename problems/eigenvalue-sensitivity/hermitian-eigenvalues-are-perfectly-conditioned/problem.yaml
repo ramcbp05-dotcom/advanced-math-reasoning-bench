@@ -1,0 +1,28 @@
+id: hermitian-eigenvalues-are-perfectly-conditioned
+area: eigenvalue-sensitivity
+title: Hermitian eigenvalues are perfectly conditioned
+difficulty: graduate
+claim_type: universal
+proof_method: analytic
+summary: >
+  Prove Weyl's inequality |lambda_k(A+E) - lambda_k(A)| <= ||E||_2 for Hermitian
+  A and E via the Courant-Fischer min-max characterisation, show the bound is
+  attained, and identify exactly which hypothesis the general (non-Hermitian)
+  case loses.
+tags: [weyl, courant-fischer, hermitian, min-max, perturbation]
+flawed:
+  - name: continuity-is-enough
+    summary: Argues eigenvalues depend continuously on entries, so they are well conditioned.
+    breaks_at: >
+      The identification of continuity with a Lipschitz constant of 1.
+      Eigenvalues are continuous for every matrix, including the Jordan block
+      whose eigenvalues move like eps^{1/n} -- continuous, and with unbounded
+      derivative at eps = 0.
+    failure_mode: continuity-is-not-conditioning
+  - name: diagonalisable-is-enough
+    summary: Claims the result holds for any diagonalisable A, since eigenvectors exist.
+    breaks_at: >
+      The step that discards kappa_2(V). Bauer-Fike gives
+      kappa_2(V)||E||_2, and the hypothesis that makes kappa_2(V) = 1 is
+      normality, not diagonalisability.
+    failure_mode: wrong-hypothesis

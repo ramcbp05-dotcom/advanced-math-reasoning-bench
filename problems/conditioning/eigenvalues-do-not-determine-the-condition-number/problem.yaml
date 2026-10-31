@@ -1,0 +1,27 @@
+id: eigenvalues-do-not-determine-the-condition-number
+area: conditioning
+title: Eigenvalues do not determine the condition number
+difficulty: undergraduate
+claim_type: mixed
+proof_method: analytic-with-witness
+summary: >
+  For a normal matrix kappa_2 is the ratio of extreme eigenvalue moduli, and
+  for a general matrix it is not. Exhibit a family with both eigenvalues
+  exactly 1 and kappa_2 ~ t^2, prove the normal case, and identify exactly
+  which property of the eigenvector basis the general case loses.
+tags: [normal-matrices, nonnormality, condition-number, schur]
+flawed:
+  - name: eigenvalue-ratio-always
+    summary: Uses |lambda_max / lambda_min| as the condition number for any matrix.
+    breaks_at: >
+      The step that passes from A = V Lambda V^{-1} to ||A|| = max|lambda|.
+      That requires V to be unitary, i.e. A normal; otherwise kappa_2(V)
+      enters and can be arbitrarily large.
+    failure_mode: missing-hypothesis
+  - name: triangular-means-eigenvalues-suffice
+    summary: Argues a triangular matrix has its eigenvalues on the diagonal, so they govern it.
+    breaks_at: >
+      The inference from "eigenvalues are visible" to "eigenvalues are
+      sufficient". The diagonal of a triangular matrix is its spectrum and says
+      nothing about the off-diagonal part, which is what carries kappa_2.
+    failure_mode: visible-is-not-sufficient

@@ -1,0 +1,28 @@
+id: hilbert-matrix-exponential-growth
+area: conditioning
+title: The Hilbert matrix is ill-conditioned exponentially in its size
+difficulty: graduate
+claim_type: universal
+proof_method: analytic-with-witness
+summary: >
+  The n x n Hilbert matrix is symmetric positive definite with an exact
+  rational determinant, and its 2-norm condition number grows like
+  (1 + sqrt 2)^{4n}. Establish the positive definiteness, quote the Cauchy
+  determinant formula, and measure the growth constant against the theoretical
+  4 ln(1 + sqrt 2) = 3.5255.
+tags: [hilbert-matrix, cauchy-determinant, condition-number, exact-arithmetic]
+flawed:
+  - name: determinant-tends-to-zero-so-singular
+    summary: Concludes H_n becomes singular because det H_n -> 0.
+    breaks_at: >
+      The step from "det -> 0" to "singular in the limit". Every H_n is
+      nonsingular with an exactly known positive determinant; a sequence of
+      nonsingular matrices whose determinants tend to zero need not approach a
+      singular matrix at all.
+    failure_mode: limit-of-determinants
+  - name: double-precision-measurement-of-kappa
+    summary: Reports the float64 condition number of H_20 as the true value.
+    breaks_at: >
+      The measurement step. Beyond n ~ 13 the computed kappa saturates near
+      1/u; the reported value is a property of the arithmetic, not of H_n.
+    failure_mode: measurement-beyond-precision

@@ -1,0 +1,28 @@
+id: trapezoidal-is-a-stable-but-not-l-stable
+area: ode-stability
+title: A-stability does not imply L-stability
+difficulty: graduate
+claim_type: mixed
+proof_method: analytic-with-witness
+summary: >
+  The trapezoidal rule is A-stable: its stability region is exactly the closed
+  left half-plane. It is not L-stable, because R(z) -> -1 rather than 0 as
+  z -> -infinity, so an infinitely stiff mode is not damped but reflected --
+  it oscillates at amplitude 1 forever instead of decaying.
+tags: [trapezoidal-rule, a-stability, l-stability, stiff, crank-nicolson]
+flawed:
+  - name: a-stable-is-enough
+    summary: Concludes the trapezoidal rule is safe for stiff problems because it is A-stable.
+    breaks_at: >
+      The identification of A-stability with good behaviour on stiff problems.
+      A-stability only requires |R| <= 1 on the left half-plane; damping a stiff
+      transient needs |R(z)| -> 0 as z -> -infinity, which is a separate
+      property.
+    failure_mode: necessary-mistaken-for-sufficient
+  - name: oscillation-is-a-bug
+    summary: Attributes the sign-alternating output to an implementation error.
+    breaks_at: >
+      The diagnosis. The alternation is exactly R(z)^n with R(z) near -1; the
+      implementation is correct and the method is doing what it is defined to
+      do.
+    failure_mode: correct-output-misread-as-a-bug

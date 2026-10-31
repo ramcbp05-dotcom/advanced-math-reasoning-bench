@@ -1,0 +1,27 @@
+id: normal-equations-square-the-condition
+area: conditioning
+title: The normal equations square the condition number
+difficulty: undergraduate
+claim_type: universal
+proof_method: analytic
+summary: >
+  Prove kappa_2(A^T A) = kappa_2(A)^2 for full-rank A, and work out what that
+  costs: solving a least-squares problem through the normal equations loses
+  twice as many digits as a QR or SVD factorisation, and the loss is in the
+  solution rather than in the residual.
+tags: [least-squares, normal-equations, condition-number, qr]
+flawed:
+  - name: submultiplicative-bound-as-equality
+    summary: Derives kappa(A^T A) <= kappa(A)^2 and reports it as the answer.
+    breaks_at: >
+      Step 2, where submultiplicativity gives only an inequality. The reverse
+      inequality needs the singular values, not the norm axioms, and without it
+      the result would permit kappa(A^T A) to be far smaller than kappa(A)^2.
+    failure_mode: inequality-reported-as-equality
+  - name: residual-means-accuracy
+    summary: Concludes the normal equations are fine because the residual is small.
+    breaks_at: >
+      The final step, which treats a small residual as evidence of an accurate
+      solution. The two are related by a factor of kappa, which is precisely
+      the quantity that has just been squared.
+    failure_mode: backward-vs-forward-error

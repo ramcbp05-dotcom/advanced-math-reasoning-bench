@@ -1,0 +1,29 @@
+id: eigenvalue-condition-number-is-one-over-the-inner-product
+area: eigenvalue-sensitivity
+title: The condition number of a simple eigenvalue is 1/|y*x|
+difficulty: graduate
+claim_type: universal
+proof_method: analytic
+summary: >
+  Derive the first-order perturbation of a simple eigenvalue, identify
+  kappa(lambda) = 1/|y*x| for unit left and right eigenvectors, show it equals
+  1 exactly for normal matrices, and show it is a strictly per-eigenvalue
+  quantity: a matrix can have one eigenvalue conditioned at 1 and another at
+  1e8.
+tags: [perturbation-theory, condition-number, left-eigenvector, normal]
+flawed:
+  - name: one-number-for-the-matrix
+    summary: Treats eigenvalue conditioning as a single property of the matrix.
+    breaks_at: >
+      The step that replaces the per-eigenvalue 1/|y_i* x_i| with the global
+      kappa_2(V). The global quantity is governed by the worst pair and can be
+      arbitrarily larger than the condition number of the eigenvalue actually
+      wanted.
+    failure_mode: global-bound-for-a-local-quantity
+  - name: right-eigenvectors-suffice
+    summary: Uses x*x = 1 in place of y*x, dropping the left eigenvector.
+    breaks_at: >
+      The step where the left eigenvector is replaced by the right one. They
+      coincide only for Hermitian matrices; for a general matrix y*x can be
+      arbitrarily small while x*x = 1.
+    failure_mode: conflating-left-and-right
