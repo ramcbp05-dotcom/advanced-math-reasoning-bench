@@ -10,7 +10,7 @@ Every problem also ships **two flawed solutions**, each naming the exact step
 where the reasoning breaks and classifying the failure.
 
 ```
-15 problems · 30 recorded flawed solutions · 131 verification checks
+15 problems · 30 recorded flawed solutions · 132 verification checks
 5 conditioning / 5 eigenvalue-sensitivity / 5 ode-stability
 ```
 
@@ -92,7 +92,7 @@ Full treatment, including three traps this repository actually fell into, in
 
 ## Where reasoning breaks
 
-The 26 flawed solutions are not straw men. Several reach the **right numerical
+The 30 flawed solutions are not straw men. Several reach the **right numerical
 answer** by an argument that does not support it: the case a reviewer waves
 through. Recurring failure modes:
 
@@ -138,7 +138,7 @@ docs/                   problem format, verification vs proof
 
 ```bash
 python -m pytest tests/ -q       # 94 integrity checks
-python -m bench.cli verify       # 15/15 problems, 131/131 checks
+python -m bench.cli verify       # 15/15 problems, 132/132 checks
 ```
 
 ## Status
@@ -157,3 +157,10 @@ repository's thesis in one file.
 ## License
 
 MIT: see [LICENSE](LICENSE).
+
+## Installed command
+
+Run `pip install .` from the checkout to install `mathbench`.
+The wheel includes the benchmark inputs; the command also works outside the
+checkout. Run outputs are written to the current directory or the requested
+report path.

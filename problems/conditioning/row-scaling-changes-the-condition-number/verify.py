@@ -76,6 +76,20 @@ def exact_kappa_of_the_witness():
                  + f"\ngrowth over the family: {kappas[-1] / kappas[0]:.3e}")
 
 
+def equilibration_norm_bound_counterexample():
+    e = sp.Matrix([[1, 1], [0, 1]])
+    b = sp.diag(sp.Rational(1, 2), 1) * e
+    def norm_inf(m):
+        return max(sum(abs(m[i, j]) for j in range(m.cols)) for i in range(m.rows))
+    norm_e = norm_inf(e)
+    kappa_e = norm_e * norm_inf(e.inv())
+    kappa_b = norm_inf(b) * norm_inf(b.inv())
+    return check("row maximum 1 does not imply matrix infinity norm 1",
+                 norm_e == 2 and kappa_e == 4 and kappa_b == 3
+                 and kappa_e <= e.rows * kappa_b, "sympy-identity",
+                 "exact counterexample: ||E||_inf=2, kappa(E)=4, kappa(diag(1/2,1)E)=3")
+
+
 def equilibration_helps_a_lot():
     rng = np.random.default_rng(3)
     rows = []
@@ -173,6 +187,7 @@ def skeel_bounds_componentwise_sensitivity():
 
 
 CHECKS = [
+    equilibration_norm_bound_counterexample,
     witness_scaling_moves_kappa_without_limit,
     scaled_systems_have_the_same_solution,
     exact_kappa_of_the_witness,

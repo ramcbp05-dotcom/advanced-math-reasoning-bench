@@ -12,7 +12,9 @@ from pathlib import Path
 
 from .models import ProblemSpec
 
-REPO_ROOT = Path(__file__).resolve().parent.parent
+PACKAGE_ROOT = Path(__file__).resolve().parent
+IMPORT_ROOT = PACKAGE_ROOT.parent
+REPO_ROOT = IMPORT_ROOT if (IMPORT_ROOT / "problems").is_dir() else PACKAGE_ROOT / "_data"
 
 
 @dataclasses.dataclass
@@ -44,7 +46,7 @@ def _parse_counts(text: str) -> tuple[int, int]:
 def verify(spec: ProblemSpec, timeout: int = 300) -> VerifyResult:
     """Execute one ``verify.py`` as a subprocess and record what it reported."""
     started = time.perf_counter()
-    env = {**_clean_env(), "PYTHONPATH": str(REPO_ROOT)}
+    env = {**_clean_env(), "PYTHONPATH": str(IMPORT_ROOT)}
     proc = subprocess.run(
         [sys.executable, str(spec.verify_path)],
         cwd=str(REPO_ROOT), capture_output=True, text=True, timeout=timeout, env=env,

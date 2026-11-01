@@ -51,30 +51,27 @@ equilibration,
 
 $$\kappa_\infty(D_{\mathrm{eq}}A) \le n \min_{D}\kappa_\infty(DA).$$
 
-**Proof sketch.** Write $B = DA$ for an arbitrary diagonal $D$, and let $E =
-D_{\mathrm{eq}}A$, so every row of $E$ has unit $\infty$-norm and $\|E\|_\infty
-= 1$.
+**Proof.** Let $B=DA$ and $E=D_{\mathrm{eq}}A$. Every row of $E$
+has maximum absolute entry 1, so its absolute row sum is at most $n$:
+$\|E\|_\infty\le n$. The induced matrix infinity norm is a maximum row
+sum, not a maximum entry.
 
-The two are related by a diagonal: $E = \Delta B$ with $\Delta =
-D_{\mathrm{eq}}D^{-1}$, and $\Delta_{ii} = 1/\|b_i\|_\infty$ where
-$b_i^{\mathsf T}$ is the $i$-th row of $B$. Now
+Write $E=\Delta B$, where $\Delta=D_{\mathrm{eq}}D^{-1}$. Even if some
+entries of $D$ are negative, $|\Delta_{ii}|=1/\|b_i\|_\infty$. Hence
 
-$$\|E^{-1}\|_\infty = \|B^{-1}\Delta^{-1}\|_\infty
-  \le \|B^{-1}\|_\infty \max_i \|b_i\|_\infty \le \|B^{-1}\|_\infty
-  \,\|B\|_\infty ,$$
+$$\|E^{-1}\|_\infty
+ = \|B^{-1}\Delta^{-1}\|_\infty
+ \le \|B^{-1}\|_\infty\max_i\|b_i\|_\infty
+ \le \|B^{-1}\|_\infty\|B\|_\infty.$$
 
-the last step because $\|B\|_\infty = \max_i\|b_i\|_1 \ge
-\max_i\|b_i\|_\infty$. Since $\|E\|_\infty = 1$,
+Multiplying by $\|E\|_\infty\le n$ gives
+$\kappa_\infty(E)\le n\kappa_\infty(DA)$ for every nonsingular diagonal
+$D$, and therefore the stated bound. $\blacksquare$
 
-$$\kappa_\infty(E) = \|E^{-1}\|_\infty \le \kappa_\infty(B).$$
-
-This already gives the result with constant 1 in the direction stated; the
-factor $n$ in the usual formulation covers the passage between $\|\cdot\|_1$
-and $\|\cdot\|_\infty$ on rows when the minimisation is taken over a larger
-class, and the sharp constant depends on which norm and which side is scaled.
-The substance is that equilibration is **within a dimension-dependent factor of
-the best possible row scaling**, which is why it is the default in production
-solvers.
+The factor cannot simply be dropped from this proof. For
+$E=\begin{pmatrix}1&1\\0&1\end{pmatrix}$, every row has maximum entry 1,
+but $\|E\|_\infty=2$ and $\kappa_\infty(E)=4$. Scaling its first row by
+$1/2$ gives condition number 3, contradicting a constant-1 optimality claim.
 
 **What it does not say.** It does not say equilibration minimises $\kappa$. The
 minimising $D$ is generally different, the minimum is not attained in closed
