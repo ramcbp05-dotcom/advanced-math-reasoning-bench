@@ -20,8 +20,8 @@
 **Step 2**, and the break is conceptual rather than algebraic. The two
 assertions in it are both true and do not combine:
 
-* the solution *set* is unchanged — correct;
-* therefore the *sensitivity* is unchanged — false.
+* the solution *set* is unchanged: correct;
+* therefore the *sensitivity* is unchanged: false.
 
 Sensitivity is not a property of a solution set. It is a property of a solution
 set **together with a perturbation model**, and the perturbation model is
@@ -40,17 +40,17 @@ is exact, not an estimation artefact, and `verify.py` computes it symbolically.
 
 ## The witness
 
-$A = \begin{pmatrix}1&1\\1&1+10^{-8}\end{pmatrix}$ has
-$\kappa_2 = 4.0\times10^{8}$; scaling the second row by $10^{8}$ gives
-$\kappa_2 = 1.8\times10^{16}$. The solution of $Ax = b$ and of $(DA)x = Db$
-agree exactly in exact arithmetic. In floating point they do not, and the second
-is the one that fails.
+$A = \begin{pmatrix}1&1\\1&1+10^{-8}\end{pmatrix}$ has $\kappa_2 =
+4.0\times10^{8}$; scaling the second row by $10^{8}$ gives $\kappa_2 =
+1.8\times10^{16}$. The solution of $Ax = b$ and of $(DA)x = Db$ agree exactly
+in exact arithmetic. In floating point they do not, and the second is the one
+that fails.
 
 ## What the submission was reaching for
 
 There *is* a scaling-invariant sensitivity measure, and the problem asks for
-it: the Skeel number $\operatorname{cond}(A) = \||A^{-1}||A|\|_\infty$, which is
-provably unchanged by any diagonal row scaling. The intuition in Step 1 is
+it: the Skeel number $\operatorname{cond}(A) = \||A^{-1}||A|\|_\infty$, which
+is provably unchanged by any diagonal row scaling. The intuition in Step 1 is
 sound; it just belongs to a different quantity than the one named.
 
 ## Failure mode

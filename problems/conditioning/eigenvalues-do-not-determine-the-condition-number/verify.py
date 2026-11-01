@@ -98,7 +98,7 @@ def exact_singular_values_of_the_shear():
 
 
 def witness_spectrum_is_a_single_point():
-    """Both eigenvalues exactly 1 for every t -- checked over the rationals."""
+    """Both eigenvalues exactly 1 for every t: checked over the rationals."""
     t = sp.Symbol("t")
     a = sp.Matrix([[1, t], [0, 1]])
     char = sp.factor(a.charpoly(sp.Symbol("x")).as_expr())

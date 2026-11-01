@@ -6,7 +6,7 @@ problems/<area>/<problem-id>/
 ├── statement.md        assumptions and the claim, in LaTeX
 ├── solution.md         the proof, with counterexamples where they sharpen it
 ├── flawed/*.md         plausible wrong solutions, each naming the broken step
-└── verify.py           numerical / symbolic evidence -- NOT the proof
+└── verify.py           numerical / symbolic evidence, NOT the proof
 ```
 
 ## `problem.yaml`
@@ -43,18 +43,18 @@ such.
 ## `solution.md`
 
 The proof, with each step's hypothesis visible. Where a counterexample sharpens
-the result it is given exactly — a matrix and its singular values in closed
+the result it is given exactly: a matrix and its singular values in closed
 form, not floating-point output. Measured tables are included with the numbers
 that were actually produced.
 
 ## `verify.py`
 
 Imports `bench.verify_support` and exposes `CHECKS`, a list of zero-argument
-functions returning `Check`. Each check carries a `role`
-(`illustration`, `witness`, `sympy-identity`, `consistency`) and a `detail`
-string with the measured numbers. See
-[verification-vs-proof.md](verification-vs-proof.md) for why the roles exist
-and for the three traps that motivated `symbolically_zero()`.
+functions returning `Check`. Each check carries a `role` (`illustration`,
+`witness`, `sympy-identity`, `consistency`) and a `detail` string with the
+measured numbers. See [verification-vs-proof.md](verification-vs-proof.md) for
+why the roles exist and for the three traps that motivated
+`symbolically_zero()`.
 
 Standard bootstrap, so the script runs directly as well as through the harness:
 

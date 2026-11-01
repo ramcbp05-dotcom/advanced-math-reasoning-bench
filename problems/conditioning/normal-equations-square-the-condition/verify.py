@@ -2,7 +2,7 @@
 """Verification for `normal-equations-square-the-condition`.
 
 The identity kappa(A^T A) = kappa(A)^2 is proved in solution.md. The checks
-below sample it, and -- more usefully -- display the forward error and the
+below sample it, and (more usefully) display the forward error and the
 residual side by side across a range of condition numbers, which is the table
 the `residual-means-accuracy` flawed solution would have needed.
 """
@@ -45,7 +45,7 @@ def identity_over_shapes_and_conditions():
     # kappa(A^T A) numerically is itself accurate only to about u*kappa(A^T A),
     # which at kappa(A) = 1e5 means u*1e10 ~ 1e-6. Demanding more than that
     # would be asking the reference value to be better conditioned than the
-    # quantity it measures -- which is the very phenomenon under study.
+    # quantity it measures, which is the very phenomenon under study.
     return check("kappa(A^T A) = kappa(A)^2 over 12 shapes and conditions",
                  worst < 1e-5, "illustration",
                  f"worst relative deviation {worst:.3e}; the floor here is "

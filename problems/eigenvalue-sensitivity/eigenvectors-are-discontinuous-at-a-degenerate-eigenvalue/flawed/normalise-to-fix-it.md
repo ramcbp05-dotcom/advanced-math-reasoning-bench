@@ -9,8 +9,8 @@
 > scale, and numerical libraries return them with arbitrary sign. The apparent
 > discontinuity is this normalisation ambiguity.
 >
-> **Step 4.** Fixing a convention — say, making the first nonzero component
-> positive and the vector unit length — removes the ambiguity. With that
+> **Step 4.** Fixing a convention: say, making the first nonzero component
+> positive and the vector unit length: removes the ambiguity. With that
 > convention both families give a well-defined eigenvector that converges, and
 > there is no genuine discontinuity.
 
@@ -28,7 +28,7 @@ What is happening here is different. The two limits are
 $$e_1 = (1, 0) \qquad\text{and}\qquad \tfrac{1}{\sqrt2}(1,1),$$
 
 which span **different lines**, at $45°$. Applying the convention in Step 4
-leaves them as $(1,0)$ and $(1,1)/\sqrt2$ — still $45°$ apart. No convention
+leaves them as $(1,0)$ and $(1,1)/\sqrt2$: still $45°$ apart. No convention
 based on signs or scaling can map one line to the other, because the ambiguity
 being fixed is within a line and the discrepancy is between lines.
 
@@ -50,14 +50,14 @@ separation that no convention touches.
 
 ## What Step 4's convention does achieve
 
-It makes each *family* return a continuous eigenvector in $\epsilon$ — and both
-families already did, since $e_1$ and $(1,1)/\sqrt2$ are constant in $\epsilon$.
-Continuity along a path is not the issue; the issue is that the limit depends
-on the path. Perturbing $I$ by $\epsilon(2vv^{\mathsf T} - I)$ gives top
-eigenvector $v$ for **any** unit $v$, so the set of limit points is the entire
-unit circle.
+It makes each *family* return a continuous eigenvector in $\epsilon$: and both
+families already did, since $e_1$ and $(1,1)/\sqrt2$ are constant in
+$\epsilon$. Continuity along a path is not the issue; the issue is that the
+limit depends on the path. Perturbing $I$ by $\epsilon(2vv^{\mathsf T} - I)$
+gives top eigenvector $v$ for **any** unit $v$, so the set of limit points is
+the entire unit circle.
 
 ## Failure mode
 
-`wrong-diagnosis`: a real but unrelated ambiguity is identified as the cause, so
-the proposed fix is sound and addresses nothing.
+`wrong-diagnosis`: a real but unrelated ambiguity is identified as the cause,
+so the proposed fix is sound and addresses nothing.

@@ -11,7 +11,7 @@
 > finite constant $C$ depending on $n$ but not on $\epsilon$, so
 > $|\delta\lambda| \le C\epsilon$.
 >
-> **Step 4.** Therefore the eigenvalues move by $O(\epsilon)$ — at
+> **Step 4.** Therefore the eigenvalues move by $O(\epsilon)$: at
 > $\epsilon = 10^{-16}$, by about $10^{-16}$ times a modest constant.
 
 ## Where it breaks
@@ -24,11 +24,12 @@ eigenvector is $y = e_n$. Therefore
 $$y^{*}x = e_n^{\mathsf T}e_1 = 0 ,$$
 
 and $C = 1/|y^{*}x|$ is **infinite**. Step 1's formula divides by zero, so
-Steps 3 and 4 are not approximations with a large constant — they are
-statements about an expansion that does not exist.
+Steps 3 and 4 are not approximations with a large constant: they are statements
+about an expansion that does not exist.
 
 The underlying hypothesis, left unstated in Step 1, is that the eigenvalue is
-**simple**. Here it has algebraic multiplicity $n$ and geometric multiplicity 1.
+**simple**. Here it has algebraic multiplicity $n$ and geometric multiplicity
+1.
 
 ## How wrong the conclusion is
 
@@ -51,8 +52,8 @@ the expansion is losing validity continuously as it does.
 
 ## The correct statement
 
-At a defective eigenvalue the expansion is a **Puiseux series** in
-$t^{1/n}$, not a Taylor series in $t$:
+At a defective eigenvalue the expansion is a **Puiseux series** in $t^{1/n}$,
+not a Taylor series in $t$:
 
 $$\lambda(t) = \lambda_0 + c_1t^{1/n} + \cdots$$
 
@@ -62,5 +63,6 @@ constant has been encountered.
 
 ## Failure mode
 
-`expansion-invalid-at-a-defective-eigenvalue`: a first-order expansion valid for
-simple eigenvalues is applied where the quantity it divides by is exactly zero.
+`expansion-invalid-at-a-defective-eigenvalue`: a first-order expansion valid
+for simple eigenvalues is applied where the quantity it divides by is exactly
+zero.

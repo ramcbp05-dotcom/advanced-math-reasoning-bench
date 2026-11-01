@@ -5,17 +5,15 @@
 Take
 
 $$A = \begin{pmatrix} 1 & 1 \\ 1 & 1 + \delta \end{pmatrix},
-\qquad
-D_t = \begin{pmatrix} 1 & 0 \\ 0 & t\end{pmatrix}, \quad t > 0 .$$
+\qquad D_t = \begin{pmatrix} 1 & 0 \\ 0 & t\end{pmatrix}, \quad t > 0 .$$
 
 $A$ is nonsingular for $\delta \ne 0$ ($\det A = \delta$). Then
 
 $$D_tA = \begin{pmatrix} 1 & 1 \\ t & t(1+\delta)\end{pmatrix}.$$
 
-As $t \to \infty$ the two rows differ in scale without limit, and
-$\|D_tA\|_2 \sim t\sqrt{2 + O(\delta)}$ while
-$\|(D_tA)^{-1}\|_2 = \|A^{-1}D_t^{-1}\|_2$ remains bounded below by
-$\|A^{-1}e_1\|_2$, which does not involve $t$. Hence
+As $t \to \infty$ the two rows differ in scale without limit, and $\|D_tA\|_2
+\sim t\sqrt{2 + O(\delta)}$ while $\|(D_tA)^{-1}\|_2 = \|A^{-1}D_t^{-1}\|_2$
+remains bounded below by $\|A^{-1}e_1\|_2$, which does not involve $t$. Hence
 $\kappa_2(D_tA) \to \infty$ linearly in $t$.
 
 Measured at $\delta = 10^{-8}$, both in exact rational arithmetic (via the
@@ -30,10 +28,9 @@ eigenvalues of $(D_tA)^{\mathsf T}(D_tA)$) and in double precision:
 
 The last row carries a lesson of its own: at $\kappa \approx 10^{16}$ the
 *computed* condition number is itself wrong by 10 %. Estimating $\kappa$ in
-double precision requires resolving $\sigma_n$, and once
-$\sigma_n/\sigma_1 \approx u$ there is nothing left to resolve. A reported
-$\kappa$ near $1/u$ should be read as "at least $10^{16}$", never as a
-measurement.
+double precision requires resolving $\sigma_n$, and once $\sigma_n/\sigma_1
+\approx u$ there is nothing left to resolve. A reported $\kappa$ near $1/u$
+should be read as "at least $10^{16}$", never as a measurement.
 
 **The conclusion.** Multiplying the second equation of $Ax = b$ through by $t$
 changes nothing about the problem: the solution set is identical, the equations
@@ -43,7 +40,7 @@ $\kappa_2$ moves by eight orders of magnitude.
 So $\kappa$ is a property of **the matrix as written**, not of the map. What it
 actually measures is the sensitivity of the computed solution to perturbations
 *of the entries*, and those perturbations are what a floating-point solver
-commits — rounding is relative to the entries as stored. Rescaling a row
+commits: rounding is relative to the entries as stored. Rescaling a row
 rescales the perturbations with it, and that is a genuine change in the
 numerical problem even though it is no change in the mathematical one.
 
@@ -54,29 +51,29 @@ equilibration,
 
 $$\kappa_\infty(D_{\mathrm{eq}}A) \le n \min_{D}\kappa_\infty(DA).$$
 
-**Proof sketch.** Write $B = DA$ for an arbitrary diagonal $D$, and let
-$E = D_{\mathrm{eq}}A$, so every row of $E$ has unit $\infty$-norm and
-$\|E\|_\infty = 1$.
+**Proof sketch.** Write $B = DA$ for an arbitrary diagonal $D$, and let $E =
+D_{\mathrm{eq}}A$, so every row of $E$ has unit $\infty$-norm and $\|E\|_\infty
+= 1$.
 
-The two are related by a diagonal: $E = \Delta B$ with
-$\Delta = D_{\mathrm{eq}}D^{-1}$, and $\Delta_{ii} = 1/\|b_i\|_\infty$ where
+The two are related by a diagonal: $E = \Delta B$ with $\Delta =
+D_{\mathrm{eq}}D^{-1}$, and $\Delta_{ii} = 1/\|b_i\|_\infty$ where
 $b_i^{\mathsf T}$ is the $i$-th row of $B$. Now
 
 $$\|E^{-1}\|_\infty = \|B^{-1}\Delta^{-1}\|_\infty
-  \le \|B^{-1}\|_\infty \max_i \|b_i\|_\infty
-  \le \|B^{-1}\|_\infty \,\|B\|_\infty ,$$
+  \le \|B^{-1}\|_\infty \max_i \|b_i\|_\infty \le \|B^{-1}\|_\infty
+  \,\|B\|_\infty ,$$
 
-the last step because $\|B\|_\infty = \max_i\|b_i\|_1 \ge \max_i\|b_i\|_\infty$.
-Since $\|E\|_\infty = 1$,
+the last step because $\|B\|_\infty = \max_i\|b_i\|_1 \ge
+\max_i\|b_i\|_\infty$. Since $\|E\|_\infty = 1$,
 
 $$\kappa_\infty(E) = \|E^{-1}\|_\infty \le \kappa_\infty(B).$$
 
 This already gives the result with constant 1 in the direction stated; the
-factor $n$ in the usual formulation covers the passage between $\|\cdot\|_1$ and
-$\|\cdot\|_\infty$ on rows when the minimisation is taken over a larger class,
-and the sharp constant depends on which norm and which side is scaled. The
-substance is that equilibration is **within a dimension-dependent factor of the
-best possible row scaling**, which is why it is the default in production
+factor $n$ in the usual formulation covers the passage between $\|\cdot\|_1$
+and $\|\cdot\|_\infty$ on rows when the minimisation is taken over a larger
+class, and the sharp constant depends on which norm and which side is scaled.
+The substance is that equilibration is **within a dimension-dependent factor of
+the best possible row scaling**, which is why it is the default in production
 solvers.
 
 **What it does not say.** It does not say equilibration minimises $\kappa$. The
@@ -98,8 +95,8 @@ Measured, on badly row-scaled random $6\times 6$ matrices:
 nonsingular diagonal $D$.
 
 **Proof.** For diagonal $D$ the entrywise absolute value is multiplicative:
-$|DA| = |D|\,|A|$, and $(DA)^{-1} = A^{-1}D^{-1}$ gives
-$|(DA)^{-1}| = |A^{-1}|\,|D^{-1}| = |A^{-1}|\,|D|^{-1}$. Hence
+$|DA| = |D|\,|A|$, and $(DA)^{-1} = A^{-1}D^{-1}$ gives $|(DA)^{-1}| =
+|A^{-1}|\,|D^{-1}| = |A^{-1}|\,|D|^{-1}$. Hence
 
 $$|(DA)^{-1}|\,|DA| = |A^{-1}|\,|D|^{-1}|D|\,|A| = |A^{-1}|\,|A| ,$$
 
@@ -128,8 +125,8 @@ $$\frac{\|\delta x\|_\infty}{\|x\|_\infty}
 Since rounding a matrix into floating point is exactly a small *relative*
 entrywise perturbation, this is the right sensitivity measure for the question
 "does my data deserve this answer", and it is immune to the gauge freedom of
-Part 1. The normwise $\kappa$ answers a different question — how a *normwise*
-perturbation propagates — and that question is scaling-dependent because the
+Part 1. The normwise $\kappa$ answers a different question (how a *normwise*
+perturbation propagates) and that question is scaling-dependent because the
 perturbation model is.
 
 ## Remarks

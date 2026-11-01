@@ -5,8 +5,8 @@
 Apply the method to $f = \lambda y$:
 
 $$y_{n+1} = y_n + \frac{h\lambda}{2}(y_n + y_{n+1})
-\;\Longrightarrow\;
-\Big(1 - \frac{z}{2}\Big)y_{n+1} = \Big(1 + \frac{z}{2}\Big)y_n ,$$
+\;\Longrightarrow\; \Big(1 - \frac{z}{2}\Big)y_{n+1} = \Big(1 +
+\frac{z}{2}\Big)y_n ,$$
 
 so
 
@@ -22,8 +22,7 @@ $$|R(z)| \le 1
 Expanding both sides:
 
 $$\Big(1+\tfrac x2\Big)^2 + \tfrac{y^2}{4}
-\;\le\;
-\Big(1-\tfrac x2\Big)^2 + \tfrac{y^2}{4}.$$
+\;\le\; \Big(1-\tfrac x2\Big)^2 + \tfrac{y^2}{4}.$$
 
 The $y^2/4$ and the $1 + x^2/4$ terms cancel on both sides, leaving
 
@@ -31,20 +30,19 @@ $$x \le -x \iff 2x \le 0 \iff \operatorname{Re}z \le 0 .$$
 
 This is an **equivalence**, so the stability region is exactly
 $\{\operatorname{Re}z \le 0\}$: both inclusions, with no slack. The trapezoidal
-rule is A-stable, and it is the *boundary* case — its region is neither larger
+rule is A-stable, and it is the *boundary* case: its region is neither larger
 nor smaller than the half-plane. $\blacksquare$
 
-(Note $R$ maps the imaginary axis to the unit circle, so on
-$\operatorname{Re}z = 0$ the method is exactly non-dissipative: it preserves
-the amplitude of a purely oscillatory mode, which is why it is the method of
-choice for Hamiltonian and wave problems.)
+(Note $R$ maps the imaginary axis to the unit circle, so on $\operatorname{Re}z
+= 0$ the method is exactly non-dissipative: it preserves the amplitude of a
+purely oscillatory mode, which is why it is the method of choice for
+Hamiltonian and wave problems.)
 
 ## Part 2: not L-stable
 
 $$\lim_{z\to-\infty}R(z)
- = \lim_{z\to-\infty}\frac{1+z/2}{1-z/2}
- = \lim_{z\to-\infty}\frac{2/z + 1}{2/z - 1}
- = \frac{1}{-1} = -1 .$$
+ = \lim_{z\to-\infty}\frac{1+z/2}{1-z/2} = \lim_{z\to-\infty}\frac{2/z + 1}{2/z
+ - 1} = \frac{1}{-1} = -1 .$$
 
 So $|R(z)| \to 1$, not 0: the trapezoidal rule is **not L-stable**.
 $\blacksquare$
@@ -59,13 +57,12 @@ Measured:
 | $-10^{4}$ | $-0.9996000800$ |
 | $-10^{8}$ | $-0.9999999600$ |
 
-Two things happen at once as the problem stiffens: the modulus approaches 1
-(no damping) and the sign becomes negative (alternation).
+Two things happen at once as the problem stiffens: the modulus approaches 1 (no
+damping) and the sign becomes negative (alternation).
 
 ## Part 3: the consequence
 
-$\lambda = -10^{6}$, $h = 0.1$, so $z = -10^{5}$ and
-$R(z) = -0.99996000\ldots$
+$\lambda = -10^{6}$, $h = 0.1$, so $z = -10^{5}$ and $R(z) = -0.99996000\ldots$
 
 | step $n$ | $y_n$ numerical | $y(t_n) = e^{-10^{6}\cdot 0.1n}$ exact |
 |---|---|---|
@@ -78,7 +75,7 @@ $R(z) = -0.99996000\ldots$
 | 7 | $-0.9997$ | $\approx 0$ |
 | 8 | $+0.9997$ | $\approx 0$ |
 
-The exact solution is $e^{-10^5} \approx 10^{-43429}$ — zero to any precision —
+The exact solution is $e^{-10^5} \approx 10^{-43429}$ (zero to any precision)
 after a single step. The numerical solution **oscillates between $\pm1$** and
 decays at a rate of $4\times10^{-5}$ per step: it would need $\sim10^{5}$ steps
 to lose even a factor of $e$.
@@ -111,24 +108,24 @@ work per step. L-stability is bought with an order.
 | explicit Euler | $1+z$ | 1 | no | no |
 | implicit Euler | $1/(1-z)$ | 1 | yes | yes |
 | trapezoidal | $\frac{1+z/2}{1-z/2}$ | 2 | yes | **no** |
-| TR-BDF2 | — | 2 | yes | yes |
+| TR-BDF2 |: | 2 | yes | yes |
 
 This is not an accident of these three methods. The **second Dahlquist
 barrier** says no A-stable linear multistep method has order above 2, and the
-trapezoidal rule attains it — so it is optimal in its class and still not
+trapezoidal rule attains it: so it is optimal in its class and still not
 L-stable.
 
 ### What real solvers do
 
-* **Damp the transient first.** The TR-BDF2 scheme takes a trapezoidal
-  sub-step followed by a BDF2 sub-step; the composite is second order **and**
-  L-stable. It is the default in several circuit and PDE codes.
+* **Damp the transient first.** The TR-BDF2 scheme takes a trapezoidal sub-step
+  followed by a BDF2 sub-step; the composite is second order **and** L-stable.
+  It is the default in several circuit and PDE codes.
 * **Use an L-stable family.** BDF2-BDF5 and the stiffly accurate SDIRK/Radau
   methods are L-stable at higher order; `scipy`'s `Radau` and `BDF` are these.
 * **Smooth with a short implicit-Euler step** after any discontinuity or at
   startup, which kills the $(-1)^n$ component before the trapezoidal rule
-  propagates it — the Rannacher time-stepping trick, standard in option
-  pricing where the payoff has a kink.
+  propagates it: the Rannacher time-stepping trick, standard in option pricing
+  where the payoff has a kink.
 
 ## Remarks
 

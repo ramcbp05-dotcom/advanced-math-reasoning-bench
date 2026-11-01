@@ -32,8 +32,8 @@ Jordan block exhibits:
 $$J_n(0) + \epsilon e_ne_1^{\mathsf T} \quad\text{has eigenvalues}\quad
   |\lambda| = \epsilon^{1/n}.$$
 
-At $n = 16$ and $\epsilon = 10^{-16}$ — a perturbation at the level of double
-rounding — the eigenvalues move to $|\lambda| = 0.1$. The map is continuous and
+At $n = 16$ and $\epsilon = 10^{-16}$ (a perturbation at the level of double
+rounding) the eigenvalues move to $|\lambda| = 0.1$. The map is continuous and
 the Lipschitz constant on any neighbourhood of 0 is infinite.
 
 ## The scale of the gap
@@ -49,10 +49,10 @@ Step 4 claims a ratio of at most 1.
 ## What a correct proof must do
 
 It must use the hypothesis. The Courant-Fischer proof uses Hermiticity twice:
-for the min-max characterisation itself, and for
-$\|E\|_2 = \max_i|\lambda_i(E)|$. A proof of Weyl's inequality that mentions
-neither has gone wrong somewhere, and the cheapest way to find out is to ask
-which step would fail for $J_n(0)$.
+for the min-max characterisation itself, and for $\|E\|_2 =
+\max_i|\lambda_i(E)|$. A proof of Weyl's inequality that mentions neither has
+gone wrong somewhere, and the cheapest way to find out is to ask which step
+would fail for $J_n(0)$.
 
 ## Failure mode
 

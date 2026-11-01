@@ -9,14 +9,14 @@
 > of $n \cdot O(h^2) = O(h)$. The method is first-order convergent.
 >
 > **Step 3.** So for $h = 10^{-3}$ on $y' = -10^{6}y$ over $[0,10]$ the global
-> error is $O(10^{-3})$ — small.
+> error is $O(10^{-3})$: small.
 >
 > **Step 4.** There is no stability threshold; the method simply gets more
 > accurate as $h$ decreases, smoothly.
 
 ## Where it breaks
 
-**Step 2**, at "the errors accumulate" — meaning *added*. They are not added;
+**Step 2**, at "the errors accumulate": meaning *added*. They are not added;
 each is **propagated through the remaining steps**, and propagation multiplies.
 
 The exact recurrence is $e_{n+1} = (1+h\lambda)e_n + \tau_n$, giving
@@ -50,7 +50,7 @@ The transition between the first two rows is a 2 % change in $h$.
 ## Both statements in Step 1-2 are individually true
 
 That is what makes this error durable. Explicit Euler **is** first-order
-convergent, and the global error **is** $O(h)$ — as $h \to 0$ with $T$ fixed.
+convergent, and the global error **is** $O(h)$: as $h \to 0$ with $T$ fixed.
 Absolute stability concerns a **fixed** $h$ with $n \to \infty$, or
 equivalently a fixed $h$ and a $\lambda$ large enough that $h|\lambda| > 2$.
 The two limits do not commute, and convergence theory says nothing about the

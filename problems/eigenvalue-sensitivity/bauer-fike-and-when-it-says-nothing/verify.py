@@ -179,7 +179,7 @@ def the_defective_bound_predicts_nothing():
                  all(b > 1e100 for b in bounds) and actual_spread > 1e6,
                  "witness", "\n".join(rows)
                  + f"\nevery bound exceeds 1e100 while the true shifts vary by "
-                   f"{actual_spread:.1e}x -- the 'bound' distinguishes nothing")
+                   f"{actual_spread:.1e}x: the 'bound' distinguishes nothing")
 
 
 def nearly_defective_gives_the_one_over_u_signature():
@@ -201,7 +201,7 @@ def nearly_defective_gives_the_one_over_u_signature():
             ok = ok and kappa > 1e3
     return check("a nearly defective matrix has a huge but finite kappa_2(V)",
                  ok, "illustration", "\n".join(rows)
-                 + "\ndistinct eigenvalues, so Bauer-Fike formally applies -- and "
+                 + "\ndistinct eigenvalues, so Bauer-Fike formally applies, and "
                    "the bound it gives is useless well before the matrix is defective")
 
 

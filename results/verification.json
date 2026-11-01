@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-10-31T21:58:08+00:00",
-  "n_problems": 13,
-  "n_passed": 13,
-  "total_checks": 112,
+  "generated_at": "2026-11-01T00:49:34+00:00",
+  "n_problems": 15,
+  "n_passed": 15,
+  "total_checks": 131,
   "total_failed": 0,
   "by_area": {
     "conditioning": {
@@ -16,8 +16,8 @@
       "failed": 0
     },
     "ode-stability": {
-      "problems": 3,
-      "checks": 29,
+      "problems": 5,
+      "checks": 48,
       "failed": 0
     }
   },
@@ -37,7 +37,7 @@
       "area": "conditioning",
       "passed": true,
       "returncode": 0,
-      "duration_sec": 0.24,
+      "duration_sec": 0.25,
       "n_checks": 8,
       "n_failed": 0
     },
@@ -46,7 +46,7 @@
       "area": "conditioning",
       "passed": true,
       "returncode": 0,
-      "duration_sec": 0.42,
+      "duration_sec": 0.43,
       "n_checks": 10,
       "n_failed": 0
     },
@@ -64,7 +64,7 @@
       "area": "conditioning",
       "passed": true,
       "returncode": 0,
-      "duration_sec": 0.37,
+      "duration_sec": 0.38,
       "n_checks": 8,
       "n_failed": 0
     },
@@ -73,7 +73,7 @@
       "area": "eigenvalue-sensitivity",
       "passed": true,
       "returncode": 0,
-      "duration_sec": 0.29,
+      "duration_sec": 0.3,
       "n_checks": 9,
       "n_failed": 0
     },
@@ -82,7 +82,7 @@
       "area": "eigenvalue-sensitivity",
       "passed": true,
       "returncode": 0,
-      "duration_sec": 0.25,
+      "duration_sec": 0.26,
       "n_checks": 9,
       "n_failed": 0
     },
@@ -123,12 +123,30 @@
       "n_failed": 0
     },
     {
+      "problem_id": "frozen-coefficients-can-lie",
+      "area": "ode-stability",
+      "passed": true,
+      "returncode": 0,
+      "duration_sec": 0.88,
+      "n_checks": 10,
+      "n_failed": 0
+    },
+    {
       "problem_id": "linearization-is-inconclusive-at-the-critical-case",
       "area": "ode-stability",
       "passed": true,
       "returncode": 0,
       "duration_sec": 0.49,
       "n_checks": 10,
+      "n_failed": 0
+    },
+    {
+      "problem_id": "second-dahlquist-barrier",
+      "area": "ode-stability",
+      "passed": true,
+      "returncode": 0,
+      "duration_sec": 1.05,
+      "n_checks": 9,
       "n_failed": 0
     },
     {

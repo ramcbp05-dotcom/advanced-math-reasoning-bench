@@ -93,7 +93,7 @@ def stiff_step_counts():
                  f"stability: h = {h_stability:g} -> {n_stability} steps "
                  f"(factor {n_stability // n_accuracy})\n"
                  f"meanwhile exp(-1e6 t) = {fast_at[1e-5]:.3e} at t = 1e-5 and "
-                 f"{fast_at[1e-4]:.3e} at t = 1e-4 -- the restriction is imposed "
+                 f"{fast_at[1e-4]:.3e} at t = 1e-4. The restriction is imposed "
                  "by a mode that has already vanished")
 
 
@@ -141,7 +141,7 @@ def local_truncation_error_has_no_threshold():
     return check("local truncation error is O(h^2) with no threshold",
                  ok, "illustration", "\n".join(rows)
                  + f"\nat h|lambda| = {h_big} (far outside the region) the local "
-                   f"error is still just {tau_big:.3e} -- the threshold is in the "
+                   f"error is still just {tau_big:.3e}. The threshold is in the "
                    "amplification factor, not in the local error")
 
 

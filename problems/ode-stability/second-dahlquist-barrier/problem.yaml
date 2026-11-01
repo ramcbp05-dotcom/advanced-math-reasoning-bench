@@ -1,0 +1,29 @@
+id: second-dahlquist-barrier
+area: ode-stability
+title: The second Dahlquist barrier, and what a numerical search can establish about it
+difficulty: research-adjacent
+claim_type: universal
+proof_method: analytic-with-witness
+summary: >
+  No A-stable linear multistep method has order above 2, and the trapezoidal
+  rule attains the bound with the smallest error constant. The problem is as
+  much about the status of the evidence as about the theorem: a search over
+  coefficient space can exhibit a counterexample to a conjecture but cannot
+  establish the barrier, and the problem asks for both halves to be stated
+  correctly.
+tags: [dahlquist-barrier, linear-multistep, a-stability, order-conditions]
+flawed:
+  - name: search-proves-the-barrier
+    summary: Searches coefficient space, finds nothing above order 2, and declares the barrier proved.
+    breaks_at: >
+      The inference from an exhausted finite search to a universal statement
+      over an uncountable coefficient space and all step numbers k. The search
+      is strong evidence and is not a proof.
+    failure_mode: finite-search-for-a-universal-claim
+  - name: higher-order-rk-contradicts-it
+    summary: Cites A-stable Runge-Kutta methods of order 4 as a counterexample.
+    breaks_at: >
+      The step that applies the barrier to Runge-Kutta methods. The theorem is
+      about linear multistep methods; Gauss-Legendre collocation is A-stable at
+      every even order and is not in the class the theorem quantifies over.
+    failure_mode: theorem-applied-outside-its-class

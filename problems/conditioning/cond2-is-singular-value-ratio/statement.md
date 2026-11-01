@@ -46,5 +46,5 @@ determinant in closed form, not as floating-point output.
 2. The equality case of $\kappa_2 \ge 1$, stated as an "if and only if".
 3. The scale invariance, with the one-line computation.
 4. For Part 2, an exact witness for each false statement, and an explanation of
-   *why* the determinant cannot do this job — not merely a demonstration that
-   it fails.
+   *why* the determinant cannot do this job: not merely a demonstration that it
+   fails.

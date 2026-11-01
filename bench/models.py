@@ -6,7 +6,7 @@ Layout of ``problems/<area>/<problem-id>/``::
     statement.md        assumptions and the claim, in LaTeX
     solution.md         the proof, plus counterexamples where they sharpen it
     flawed/*.md         plausible wrong solutions, each naming the broken step
-    verify.py           numerical / symbolic evidence -- NOT the proof
+    verify.py           numerical / symbolic evidence: NOT the proof
 """
 
 from __future__ import annotations

@@ -36,13 +36,12 @@ If $\lambda$ is a **simple** eigenvalue of $A$, then for nearby $A'$ the
 corresponding eigenvalue stays simple, the null space stays one-dimensional,
 and the eigenvector (up to sign) *is* continuous. The missing hypothesis is
 simplicity, and the correct quantitative version is the Davis-Kahan theorem,
-whose constant is $1/\text{gap}$ — unbounded as the gap closes.
+whose constant is $1/\text{gap}$: unbounded as the gap closes.
 
 ## The witness
 
-$B(\epsilon) = \operatorname{diag}(1+\epsilon, 1-\epsilon)$ and
-$C(\epsilon) = \begin{psmallmatrix}1 & \epsilon\\ \epsilon & 1\end{psmallmatrix}$
-have:
+$B(\epsilon) = \operatorname{diag}(1+\epsilon, 1-\epsilon)$ and $C(\epsilon) =
+\begin{psmallmatrix}1 & \epsilon\\ \epsilon & 1\end{psmallmatrix}$ have:
 
 * the same distance to $I$: $\|\cdot\|_2 = \epsilon$ for both;
 * the same spectrum: $\{1+\epsilon, 1-\epsilon\}$ for both;

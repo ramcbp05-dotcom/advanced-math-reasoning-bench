@@ -1,0 +1,29 @@
+id: frozen-coefficients-can-lie
+area: ode-stability
+title: Frozen-time eigenvalues do not determine stability of a time-varying system
+difficulty: research-adjacent
+claim_type: existential
+proof_method: analytic-with-witness
+summary: >
+  For a time-varying linear system x' = A(t)x it is tempting to freeze t and
+  read off stability from the eigenvalues of A(t). The Markus-Yamabe example
+  has eigenvalues constant at (-1 +- i sqrt 7)/4 for every t (both with real
+  part -1/4) and an exact solution growing like e^{t/2}. The eigenvalues are
+  not wrong; they are irrelevant.
+tags: [time-varying, frozen-coefficients, markus-yamabe, floquet, lyapunov-exponent]
+flawed:
+  - name: freeze-and-read-off
+    summary: Concludes stability because every frozen-time eigenvalue has negative real part.
+    breaks_at: >
+      The step that applies the constant-coefficient criterion to a
+      time-varying system. The eigenvalues of A(t) govern x' = A(t_0)x for
+      fixed t_0; for varying t the eigenvectors rotate and the solution can
+      grow while every instantaneous eigenvalue decays.
+    failure_mode: constant-coefficient-theory-outside-its-hypothesis
+  - name: slowly-varying-so-it-is-fine
+    summary: Argues the result holds if A(t) varies slowly enough.
+    breaks_at: >
+      The claim that the witness can be ruled out by slow variation. Rescaling
+      time to make A vary arbitrarily slowly rescales the growth rate by the
+      same factor, so the system still grows, just more slowly.
+    failure_mode: rescaling-does-not-remove-the-phenomenon

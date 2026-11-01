@@ -205,7 +205,7 @@ def defective_limit_has_kappa_infinite():
     return check("y*x = 0 exactly at the defective limit",
                  True, "witness",
                  "for the nilpotent Jordan block x = e_1 and y = e_n, so y*x = 0 "
-                 "and kappa is infinite -- the first-order statement of the "
+                 "and kappa is infinite: the first-order statement of the "
                  "eps^(1/n) result")
 
 

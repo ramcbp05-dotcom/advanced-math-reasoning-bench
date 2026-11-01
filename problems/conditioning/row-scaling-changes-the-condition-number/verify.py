@@ -35,7 +35,7 @@ def witness_scaling_moves_kappa_without_limit():
 
 
 def scaled_systems_have_the_same_solution():
-    """The mathematical problem really is unchanged -- that is the point."""
+    """The mathematical problem really is unchanged. That is the point."""
     rng = np.random.default_rng(20260504)
     worst = 0.0
     for _ in range(20):
@@ -97,7 +97,7 @@ def equilibration_is_not_optimal():
 
     Finding *any* D that beats equilibration refutes the `equilibration-is-
     optimal` claim. The search is over a grid, so a failure to find one would
-    prove nothing -- but a success does.
+    prove nothing, but a success does.
     """
     rng = np.random.default_rng(20260505)
     best_gain = 1.0

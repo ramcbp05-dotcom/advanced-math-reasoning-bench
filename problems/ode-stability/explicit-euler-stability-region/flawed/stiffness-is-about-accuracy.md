@@ -21,12 +21,12 @@ resolving, because by the time anything is being asked of the solution it has
 $$e^{-10^{6}t}\Big|_{t = 10^{-4}} = e^{-100} \approx 10^{-44}.$$
 
 Out of the interval $[0,10]$, the fast mode is non-negligible on roughly the
-first $10^{-5}$ — a fraction $10^{-6}$ of the integration. Its contribution to
+first $10^{-5}$: a fraction $10^{-6}$ of the integration. Its contribution to
 the error over the rest is exactly zero to machine precision, so no accuracy
 requirement it imposes can be binding.
 
-The step restriction is nonetheless real, and it comes from
-$|1 + h\lambda_{\text{fast}}| \le 1$, i.e. $h \le 2\times10^{-6}$. That is a
+The step restriction is nonetheless real, and it comes from $|1 +
+h\lambda_{\text{fast}}| \le 1$, i.e. $h \le 2\times10^{-6}$. That is a
 **stability** requirement: it exists to stop the dead mode from being
 *amplified*, not to resolve it.
 
@@ -34,11 +34,11 @@ $|1 + h\lambda_{\text{fast}}| \le 1$, i.e. $h \le 2\times10^{-6}$. That is a
 
 Step 4's diagnosis leads to the wrong remedy. If the problem were accuracy, the
 answer would be a higher-order explicit method: going from order 1 to order 4
-would buy a much larger step for the same error. It buys nothing here —
-**no explicit Runge-Kutta method is A-stable**, because its $R(z)$ is a
-polynomial, and a non-constant polynomial is unbounded, so its stability region
-is bounded and a large enough $h|\lambda|$ always escapes it. RK4 on this
-system needs $h \lesssim 2.78/10^{6}$ instead of $2/10^{6}$: a factor of 1.4.
+would buy a much larger step for the same error. It buys nothing here: **no
+explicit Runge-Kutta method is A-stable**, because its $R(z)$ is a polynomial,
+and a non-constant polynomial is unbounded, so its stability region is bounded
+and a large enough $h|\lambda|$ always escapes it. RK4 on this system needs $h
+\lesssim 2.78/10^{6}$ instead of $2/10^{6}$: a factor of 1.4.
 
 The correct remedy is an **implicit** method, whose stability region is
 unbounded. Implicit Euler or the trapezoidal rule integrates this system with

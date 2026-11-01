@@ -6,8 +6,8 @@ If $\mu \in \operatorname{spec}(A)$ the left side is 0 and there is nothing to
 prove. So assume $\mu \notin \operatorname{spec}(A)$; then $\mu I - \Lambda$ is
 invertible.
 
-Since $\mu$ is an eigenvalue of $A + E$, the matrix $\mu I - A - E$ is singular.
-Write
+Since $\mu$ is an eigenvalue of $A + E$, the matrix $\mu I - A - E$ is
+singular. Write
 
 $$\mu I - A - E = V(\mu I - \Lambda)V^{-1} - E
   = V(\mu I - \Lambda)\Big[I - (\mu I - \Lambda)^{-1}V^{-1}EV\Big]V^{-1}.$$
@@ -43,8 +43,8 @@ Take
 $$A = \begin{pmatrix}1 & t\\ 0 & 2\end{pmatrix},
 \qquad E = \delta\begin{pmatrix}0 & 0\\ 1 & 0\end{pmatrix}.$$
 
-$A$ is diagonalisable (distinct eigenvalues 1, 2) with $\kappa_2(V) \approx 2t$.
-Measured at $\delta = 10^{-10}$:
+$A$ is diagonalisable (distinct eigenvalues 1, 2) with $\kappa_2(V) \approx
+2t$. Measured at $\delta = 10^{-10}$:
 
 | $t$ | $\kappa_2(V)$ | bound $\kappa_2(V)\delta$ | measured shift | ratio |
 |---|---|---|---|---|
@@ -62,7 +62,8 @@ Now take the **same** family but a perturbation that does not excite the
 ill-conditioned direction:
 
 $$A_t = \begin{pmatrix}1 & t\\ 0 & 2\end{pmatrix},
-\qquad E = \delta\begin{pmatrix}1 & 0\\ 0 & -1\end{pmatrix}, \qquad \delta = 10^{-10}.$$
+\qquad E = \delta\begin{pmatrix}1 & 0\\ 0 & -1\end{pmatrix}, \qquad \delta =
+10^{-10}.$$
 
 $A_t$ is diagonalisable for every $t$, and $\kappa_2(V_t) \to \infty$, so the
 Bauer-Fike bound $\kappa_2(V_t)\delta \to \infty$.
@@ -78,18 +79,18 @@ Measured:
 
 **The answer to the question is no.** The bound grows without limit while the
 true shift stays pinned at $\delta$, because this $E$ is diagonal and commutes
-with the eigenvalue structure in the relevant way — the eigenvalues of $A_t + E$
+with the eigenvalue structure in the relevant way: the eigenvalues of $A_t + E$
 are exactly $1 + \delta$ and $2 - \delta$ for every $t$.
 
-So Bauer-Fike is **simultaneously sharp and vacuous**, depending on $E$:
-sharp for the worst-case $E$ (Part 2), and arbitrarily loose for a specific one
-(Part 3). It is a worst-case bound over all perturbations of a given norm, and
+So Bauer-Fike is **simultaneously sharp and vacuous**, depending on $E$: sharp
+for the worst-case $E$ (Part 2), and arbitrarily loose for a specific one (Part
+3). It is a worst-case bound over all perturbations of a given norm, and
 quoting it for a particular $E$ says only that *some* perturbation of that size
 could do that much damage.
 
 ## Part 4: the defective case
 
-For $J_n$ nilpotent, **Bauer-Fike asserts nothing at all** — not "the bound is
+For $J_n$ nilpotent, **Bauer-Fike asserts nothing at all**: not "the bound is
 large", but that the theorem has no hypothesis to apply. $J_n$ is not
 diagonalisable: its geometric multiplicity is 1 and its algebraic multiplicity
 is $n$, so there is no $V$ with $J_n = V\Lambda V^{-1}$.
@@ -97,7 +98,7 @@ is $n$, so there is no $V$ with $J_n = V\Lambda V^{-1}$.
 ### What `eig` returns
 
 `numpy.linalg.eig(J_n)` does not fail. It returns $n$ eigenvalues (all exactly
-0 here) and an $n\times n$ matrix $V$ whose columns are **exactly** $e_1$ —
+0 here) and an $n\times n$ matrix $V$ whose columns are **exactly** $e_1$:
 because $e_1$ really is the only eigenvector direction. That $V$ is therefore
 exactly singular:
 
@@ -109,9 +110,8 @@ exactly singular:
 
 The bound is infinite. That is a true statement and an empty one: it is
 consistent with every possible behaviour, and in particular it does not
-distinguish $n = 2$ from $n = 16$, whose true shifts under the same
-$\|E\|_2 = 10^{-16}$ are $10^{-8}$ and $10^{-1}$ — seven orders of magnitude
-apart.
+distinguish $n = 2$ from $n = 16$, whose true shifts under the same $\|E\|_2 =
+10^{-16}$ are $10^{-8}$ and $10^{-1}$: seven orders of magnitude apart.
 
 ### The case that actually arises
 
@@ -145,7 +145,7 @@ better, a left/right eigenvector inner product $y^{*}x$ approaching 0.
   Bauer-Fike is the statement that $\Lambda_\epsilon(A)$ is contained in the
   union of discs of radius $\kappa_2(V)\epsilon$ about the eigenvalues.
 * Bauer-Fike has a *per-eigenvalue* refinement using the individual condition
-  numbers $1/|y_i^{*}x_i|$ — see
-  `eigenvalue-condition-number-is-one-over-the-inner-product` — which is often
+  numbers $1/|y_i^{*}x_i|$: see
+  `eigenvalue-condition-number-is-one-over-the-inner-product`: which is often
   far sharper, because $\kappa_2(V)$ is a single global constant governed by
   the worst eigenvector pair.

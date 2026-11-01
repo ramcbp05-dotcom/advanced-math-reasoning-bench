@@ -16,11 +16,11 @@
 ## Where it breaks
 
 **Step 4**, at "so the eigenvalue shift **is**". Bauer-Fike gives
-$\min_i|\mu-\lambda_i| \le \kappa_2(V)\|E\|_2$ — an upper bound, with no
+$\min_i|\mu-\lambda_i| \le \kappa_2(V)\|E\|_2$: an upper bound, with no
 accompanying lower bound.
 
-For this particular $E$ the eigenvalues of $A_t + E$ are exactly
-$1 + \delta$ and $2 - \delta$, independent of $t$:
+For this particular $E$ the eigenvalues of $A_t + E$ are exactly $1 + \delta$
+and $2 - \delta$, independent of $t$:
 
 | $t$ | bound | actual shift | over-estimate |
 |---|---|---|---|
@@ -40,7 +40,7 @@ The structural point is that Bauer-Fike is a **worst case over all $E$ of a
 given norm**. It answers "how much could a perturbation this size do?", not
 "how much did *this* perturbation do?". Part 2 of the problem exhibits an $E$
 that attains it, which is what makes the theorem sharp as a statement about the
-worst case — and that same sharpness is why it must be loose for other $E$.
+worst case: and that same sharpness is why it must be loose for other $E$.
 
 ## What to do instead
 
@@ -55,5 +55,5 @@ Three options, in increasing order of effort:
 
 ## Failure mode
 
-`bound-reported-as-estimate`: `<=` is read as `~`, and a worst-case guarantee is
-quoted as a prediction for a specific case.
+`bound-reported-as-estimate`: `<=` is read as `~`, and a worst-case guarantee
+is quoted as a prediction for a specific case.

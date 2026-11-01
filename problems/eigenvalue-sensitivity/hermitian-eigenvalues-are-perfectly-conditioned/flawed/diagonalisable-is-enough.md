@@ -22,9 +22,9 @@
 
 Normalising the columns of $V$ makes $\|V\|_2 \le \sqrt n$. It does **nothing**
 to $\|V^{-1}\|_2$, which is governed by how close the columns are to being
-linearly dependent — i.e. by the *angles* between eigenvectors, not their
-lengths. Two unit vectors at an angle $\theta$ give a matrix with
-$\kappa_2 \approx 2/\theta$ as $\theta \to 0$, with no bound at all.
+linearly dependent: i.e. by the *angles* between eigenvectors, not their
+lengths. Two unit vectors at an angle $\theta$ give a matrix with $\kappa_2
+\approx 2/\theta$ as $\theta \to 0$, with no bound at all.
 
 The hypothesis that makes $\kappa_2(V) = 1$ is that $V$ can be chosen
 **unitary**, i.e. the eigenvectors are *orthogonal*. By the spectral theorem
@@ -37,8 +37,8 @@ eigenvalues by a variational principle over orthogonal complements.
 ## The witness
 
 $A_t = \begin{pmatrix}1 & t\\ 0 & 2\end{pmatrix}$ is diagonalisable for every
-$t$ — its eigenvalues 1 and 2 are distinct, so a complete eigenbasis exists,
-and the eigenvectors can be normalised to unit length as Step 5 proposes. Their
+$t$: its eigenvalues 1 and 2 are distinct, so a complete eigenbasis exists, and
+the eigenvectors can be normalised to unit length as Step 5 proposes. Their
 angle closes like $1/t$, and
 
 | $t$ | $\kappa_2(V)$ | shift under $\|E\|_2 = 10^{-10}$ |
@@ -53,11 +53,11 @@ $t = 10^{6}$, and by any amount one likes at larger $t$.
 
 ## The distinction to keep
 
-* **Diagonalisable** — a complete eigenbasis exists. Says nothing about
+* **Diagonalisable**: a complete eigenbasis exists. Says nothing about
   conditioning.
-* **Normal** — an *orthonormal* eigenbasis exists. Gives $\kappa_2(V) = 1$ and
-  with it Weyl, Bauer-Fike with constant 1, and
-  $\kappa_2(A) = |\lambda_1|/|\lambda_n|$.
+* **Normal**: an *orthonormal* eigenbasis exists. Gives $\kappa_2(V) = 1$ and
+  with it Weyl, Bauer-Fike with constant 1, and $\kappa_2(A) =
+  |\lambda_1|/|\lambda_n|$.
 
 Almost every "nice" property in numerical linear algebra follows from
 normality, and almost none follows from diagonalisability.

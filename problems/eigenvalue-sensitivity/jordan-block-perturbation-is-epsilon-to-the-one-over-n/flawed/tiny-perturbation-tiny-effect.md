@@ -16,8 +16,8 @@
 ## Where it breaks
 
 **Step 3-4**, at the unstated assumption that a small stimulus produces a small
-response. The whole content of Steps 1-2 — which the submission derived
-correctly — is that this is false here.
+response. The whole content of Steps 1-2 (which the submission derived
+correctly) is that this is false here.
 
 Substituting $\epsilon = 10^{-16}$ into the formula the submission itself
 derived:
@@ -28,8 +28,8 @@ derived:
 | 8 | $10^{-2}$ |
 | 16 | $\mathbf{10^{-1}}$ |
 
-At $n = 16$ the eigenvalues are at radius $0.1$. The true spectrum is
-$\{0\}$. The answer is wrong in the first significant figure.
+At $n = 16$ the eigenvalues are at radius $0.1$. The true spectrum is $\{0\}$.
+The answer is wrong in the first significant figure.
 
 This is a particularly instructive failure because nothing in Steps 1-2 is
 wrong: the submission has the exact formula in hand and does not evaluate it.
@@ -42,14 +42,14 @@ exactly where intuition about "small" fails.
 The computed eigenvalues are *not* accurate to $10^{-16}$, and no algorithm can
 make them so. A backward-stable eigensolver returns the exact spectrum of
 $J_{16} + E$ with $\|E\| \approx u$, and that spectrum really is at radius
-$0.1$. The information is not in the stored matrix: $J_{16}$ and
-$J_{16} + 10^{-16}e_{16}e_1^{\mathsf T}$ are different matrices with genuinely
-different spectra, and double precision cannot tell them apart.
+$0.1$. The information is not in the stored matrix: $J_{16}$ and $J_{16} +
+10^{-16}e_{16}e_1^{\mathsf T}$ are different matrices with genuinely different
+spectra, and double precision cannot tell them apart.
 
 The practical consequences are real rather than theoretical:
 
-* eigenvalues of a nearly defective matrix cannot be computed accurately, and
-  a code should report the eigenvalue condition number alongside them;
+* eigenvalues of a nearly defective matrix cannot be computed accurately, and a
+  code should report the eigenvalue condition number alongside them;
 * polynomial root-finding via the companion matrix inherits this exactly: a
   root of multiplicity $m$ is computed to $u^{1/m}$;
 * the **pseudospectrum**, not the spectrum, is what predicts the behaviour of

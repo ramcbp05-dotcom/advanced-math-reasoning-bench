@@ -1,4 +1,4 @@
-"""``mathbench`` -- list, read and verify the benchmark problems."""
+"""``mathbench``: list, read and verify the benchmark problems."""
 
 from __future__ import annotations
 

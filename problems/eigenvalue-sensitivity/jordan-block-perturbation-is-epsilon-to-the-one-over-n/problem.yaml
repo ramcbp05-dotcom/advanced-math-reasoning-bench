@@ -8,7 +8,7 @@ summary: >
   For the n x n nilpotent Jordan block perturbed in the bottom-left corner by
   eps, the characteristic polynomial is exactly lambda^n - eps, so every
   eigenvalue has modulus eps^{1/n}. At n = 16 a perturbation of 1e-16 moves the
-  eigenvalues to 0.1 -- an amplification of 1e15, with no eigenvalue condition
+  eigenvalues to 0.1, an amplification of 1e15, with no eigenvalue condition
   number to blame, because the matrix is defective.
 tags: [jordan-block, defective, non-normal, root-sensitivity, pseudospectra]
 flawed:

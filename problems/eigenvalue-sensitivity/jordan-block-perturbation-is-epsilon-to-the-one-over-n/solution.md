@@ -5,26 +5,22 @@
 Expand $\det(\lambda I - J_n(\epsilon))$ along the first column. The matrix is
 
 $$\lambda I - J_n(\epsilon) = \begin{pmatrix}
-\lambda & -1 & & \\
- & \lambda & \ddots & \\
- & & \ddots & -1 \\
--\epsilon & & & \lambda
-\end{pmatrix},$$
+\lambda & -1 & & \\ & \lambda & \ddots & \\ & & \ddots & -1 \\ -\epsilon & & &
+\lambda \end{pmatrix},$$
 
 with nonzero entries in the first column only at positions $(1,1) = \lambda$
 and $(n,1) = -\epsilon$.
 
-**The $(1,1)$ term.** Deleting row 1 and column 1 leaves the
-$(n-1)\times(n-1)$ upper triangular matrix $\lambda I - J_{n-1}$, whose
-determinant is $\lambda^{n-1}$. Contribution: $\lambda \cdot \lambda^{n-1}
-= \lambda^{n}$.
+**The $(1,1)$ term.** Deleting row 1 and column 1 leaves the $(n-1)\times(n-1)$
+upper triangular matrix $\lambda I - J_{n-1}$, whose determinant is
+$\lambda^{n-1}$. Contribution: $\lambda \cdot \lambda^{n-1} = \lambda^{n}$.
 
 **The $(n,1)$ term.** Deleting row $n$ and column 1 leaves the
 $(n-1)\times(n-1)$ matrix with $-1$ on its *main* diagonal (the superdiagonal
 entries of the original, now shifted onto the diagonal) and $\lambda$ on its
-subdiagonal — lower triangular with diagonal $(-1,\dots,-1)$, so its
-determinant is $(-1)^{n-1}$. With the cofactor sign $(-1)^{n+1}$ and the entry
-$-\epsilon$, the contribution is
+subdiagonal: lower triangular with diagonal $(-1,\dots,-1)$, so its determinant
+is $(-1)^{n-1}$. With the cofactor sign $(-1)^{n+1}$ and the entry $-\epsilon$,
+the contribution is
 
 $$(-1)^{n+1}\cdot(-\epsilon)\cdot(-1)^{n-1} = -\epsilon .$$
 
@@ -40,9 +36,9 @@ $$\lambda_k = \epsilon^{1/n}e^{2\pi ik/n}, \qquad k = 0,\dots,n-1,$$
 
 each of modulus exactly $\epsilon^{1/n}$. $\blacksquare$
 
-The eigenvalues lie on a circle of radius $\epsilon^{1/n}$, equally spaced —
-the perturbation does not merely move them, it *resolves* the defective
-eigenvalue into a regular $n$-gon.
+The eigenvalues lie on a circle of radius $\epsilon^{1/n}$, equally spaced: the
+perturbation does not merely move them, it *resolves* the defective eigenvalue
+into a regular $n$-gon.
 
 ## Part 2: amplification
 
@@ -88,7 +84,7 @@ For $J_n$ with $n \ge 2$:
 * therefore $y^{*}x = e_n^{\mathsf T}e_1 = \boxed{0}$.
 
 The condition number $1/|y^{*}x|$ is **infinite**, and the formula divides by
-zero. This is not a removable singularity or a case to be handled with care —
+zero. This is not a removable singularity or a case to be handled with care:
 the expansion itself does not exist.
 
 ### The correct expansion
@@ -114,9 +110,8 @@ Hermitian as a matrix gets: it is nilpotent, so all its eigenvalues are 0 while
 $\|J_n\|_2 = 1$, giving a spectral radius of 0 against a norm of 1.
 
 A Hermitian matrix with spectral radius 0 is the zero matrix. The two results
-are statements about disjoint classes, and the gap between them —
-amplification 1 against amplification $10^{15}$ — is a measure of how much
-normality buys.
+are statements about disjoint classes, and the gap between them (amplification
+1 against amplification $10^{15}$) is a measure of how much normality buys.
 
 ## Remarks
 
@@ -126,8 +121,8 @@ normality buys.
   constant term picks up a generic $O(\epsilon)$ contribution.
 * The circle of radius $\epsilon^{1/n}$ is the boundary of the
   **$\epsilon$-pseudospectrum** of $J_n$, and this example is the standard
-  motivation for pseudospectra: for a non-normal matrix the spectrum alone
-  does not predict behaviour, and the set of eigenvalues reachable under small
+  motivation for pseudospectra: for a non-normal matrix the spectrum alone does
+  not predict behaviour, and the set of eigenvalues reachable under small
   perturbations does.
 * The same phenomenon limits root-finding by companion matrix: a polynomial
   with a root of multiplicity $m$ has that root computed to only $u^{1/m}$

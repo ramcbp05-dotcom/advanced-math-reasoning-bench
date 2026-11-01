@@ -37,7 +37,7 @@ For the three initial conditions in the table:
 | $0.001$ | $500\,000$ | 5 | 0.001 % |
 
 The computation stopped at 10 % of the blow-up time in the best case. Worse,
-the *pattern* in Step 4 — smaller $x_0$ moves less — is exactly backwards as
+the *pattern* in Step 4 (smaller $x_0$ moves less) is exactly backwards as
 evidence: it reflects $t^{*}$ growing like $x_0^{-2}$, so smaller initial data
 pushes the blow-up further out and makes a fixed horizon less informative, not
 more.
@@ -46,9 +46,9 @@ more.
 
 $x(t) = x_0(1 - t/t^{*})^{-1/2}$, so at $t = 0.99t^{*}$ the solution is only
 $10x_0$ and at $t = 0.9999t^{*}$ only $100x_0$. From $x_0 = 0.001$ that is
-$0.1$ — still small-looking. **The blow-up is invisible until the last
-fraction of a percent of the time interval.** Any fixed horizon and any fixed
-"large value" threshold can be defeated by choosing $x_0$ small enough.
+$0.1$: still small-looking. **The blow-up is invisible until the last fraction
+of a percent of the time interval.** Any fixed horizon and any fixed "large
+value" threshold can be defeated by choosing $x_0$ small enough.
 
 An adaptive solver also does not raise an alarm: it reduces the step as the
 solution steepens and returns successfully at whatever endpoint it was given.

@@ -16,7 +16,7 @@ flawed:
     breaks_at: >
       The identification of continuity with a Lipschitz constant of 1.
       Eigenvalues are continuous for every matrix, including the Jordan block
-      whose eigenvalues move like eps^{1/n} -- continuous, and with unbounded
+      whose eigenvalues move like eps^{1/n}: continuous, and with unbounded
       derivative at eps = 0.
     failure_mode: continuity-is-not-conditioning
   - name: diagonalisable-is-enough

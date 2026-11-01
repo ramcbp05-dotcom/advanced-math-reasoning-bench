@@ -2,12 +2,12 @@
 
 ## Part 1: the normal case
 
-By the spectral theorem $A = U\Lambda U^{*}$ with $U$ unitary and
-$\Lambda = \operatorname{diag}(\lambda_i)$. Then
+By the spectral theorem $A = U\Lambda U^{*}$ with $U$ unitary and $\Lambda =
+\operatorname{diag}(\lambda_i)$. Then
 
 $$A^{*}A = U\Lambda^{*}U^{*}U\Lambda U^{*} = U|\Lambda|^2U^{*},$$
 
-**using $U^{*}U = I$** — this is the only place normality enters, and it is the
+**using $U^{*}U = I$**: this is the only place normality enters, and it is the
 whole of the argument. So the eigenvalues of $A^{*}A$ are $|\lambda_i|^2$, the
 singular values of $A$ are $\sigma_i = |\lambda_i|$, and by
 `cond2-is-singular-value-ratio`,
@@ -24,8 +24,8 @@ cancel. Everything in Part 3 is an account of what that leftover factor does.
 $$A_t = \begin{pmatrix} 1 & t \\ 0 & 1\end{pmatrix}, \qquad t > 0 .$$
 
 $A_t$ is upper triangular, so its spectrum is its diagonal: $\lambda = 1$ with
-algebraic multiplicity 2. Hence
-$|\lambda_{\max}|/|\lambda_{\min}| = 1$ for **every** $t$.
+algebraic multiplicity 2. Hence $|\lambda_{\max}|/|\lambda_{\min}| = 1$ for
+**every** $t$.
 
 ### Singular values in closed form
 
@@ -57,9 +57,9 @@ quadratically. $\blacksquare$
 **Why this is not a pathology.** $A_t$ is a shear. It is perfectly invertible,
 its determinant is 1, and it has no small or clustered eigenvalues. What it has
 is a highly non-orthogonal eigenstructure: both eigenvectors are multiples of
-$e_1$ (the matrix is defective for $t \neq 0$), so there is no eigenvector basis
-at all, let alone an orthogonal one. The eigenvalues are simply not carrying
-the information.
+$e_1$ (the matrix is defective for $t \neq 0$), so there is no eigenvector
+basis at all, let alone an orthogonal one. The eigenvalues are simply not
+carrying the information.
 
 ## Part 3: the sandwich
 
@@ -67,14 +67,14 @@ Let $A = V\Lambda V^{-1}$ be diagonalisable.
 
 ### Lower bound
 
-For any eigenpair $Ax = \lambda x$ with $\|x\|_2 = 1$,
-$\|A\|_2 \ge \|Ax\|_2 = |\lambda|$, so $\|A\|_2 \ge |\lambda_1|$. The same
-applied to $A^{-1}$, whose eigenvalues are $\lambda_i^{-1}$, gives
-$\|A^{-1}\|_2 \ge 1/|\lambda_n|$. Multiplying,
+For any eigenpair $Ax = \lambda x$ with $\|x\|_2 = 1$, $\|A\|_2 \ge \|Ax\|_2 =
+|\lambda|$, so $\|A\|_2 \ge |\lambda_1|$. The same applied to $A^{-1}$, whose
+eigenvalues are $\lambda_i^{-1}$, gives $\|A^{-1}\|_2 \ge 1/|\lambda_n|$.
+Multiplying,
 
 $$\kappa_2(A) \ge \frac{|\lambda_1|}{|\lambda_n|}.$$
 
-(This half needs no diagonalisability — only that $\lambda_1, \lambda_n$ are
+(This half needs no diagonalisability: only that $\lambda_1, \lambda_n$ are
 eigenvalues. It is the *spectral radius* bound $\rho(A) \le \|A\|$.)
 
 ### Upper bound
@@ -93,26 +93,26 @@ $$\kappa_2(A) \le \kappa_2(V)^2\,\frac{|\lambda_1|}{|\lambda_n|}. \qquad\blacksq
 
 ### The normal case
 
-$A$ normal means $V$ may be taken unitary, so $\kappa_2(V) = 1$ and the sandwich
-collapses to the equality of Part 1. **The missing quantity is exactly
-$\kappa_2(V)$ — the conditioning of the eigenvector basis.**
+$A$ normal means $V$ may be taken unitary, so $\kappa_2(V) = 1$ and the
+sandwich collapses to the equality of Part 1. **The missing quantity is exactly
+$\kappa_2(V)$: the conditioning of the eigenvector basis.**
 
-For the witness $A_t$ there is no eigenvector basis at all, so the sandwich says
-nothing; the natural statement for the defective case is the Jordan-form bound,
-and the sharp one is through the SVD, which always exists.
+For the witness $A_t$ there is no eigenvector basis at all, so the sandwich
+says nothing; the natural statement for the defective case is the Jordan-form
+bound, and the sharp one is through the SVD, which always exists.
 
 ## Remarks
 
-* The same quantity $\kappa_2(V)$ governs **eigenvalue** sensitivity through the
-  Bauer-Fike theorem, and the same degeneration appears there. That is not a
-  coincidence: non-orthogonality of the eigenvectors is the single defect behind
-  both, and it is the subject of
-  `bauer-fike-and-when-it-says-nothing` in the eigenvalue-sensitivity area.
-* A matrix with well-separated eigenvalues can still have $\kappa_2(V)$ enormous
-  — separation of eigenvalues and orthogonality of eigenvectors are independent
-  properties.
+* The same quantity $\kappa_2(V)$ governs **eigenvalue** sensitivity through
+  the Bauer-Fike theorem, and the same degeneration appears there. That is not
+  a coincidence: non-orthogonality of the eigenvectors is the single defect
+  behind both, and it is the subject of `bauer-fike-and-when-it-says-nothing`
+  in the eigenvalue-sensitivity area.
+* A matrix with well-separated eigenvalues can still have $\kappa_2(V)$
+  enormous: separation of eigenvalues and orthogonality of eigenvectors are
+  independent properties.
 * For *real symmetric* and *Hermitian* matrices the whole difficulty vanishes:
-  they are normal, $\kappa_2 = |\lambda_1|/|\lambda_n|$, and the eigenvalues are
-  perfectly conditioned (see `hermitian-eigenvalues-are-perfectly-conditioned`).
-  Most of the trouble in numerical linear algebra is a consequence of
-  non-normality.
+  they are normal, $\kappa_2 = |\lambda_1|/|\lambda_n|$, and the eigenvalues
+  are perfectly conditioned (see
+  `hermitian-eigenvalues-are-perfectly-conditioned`). Most of the trouble in
+  numerical linear algebra is a consequence of non-normality.

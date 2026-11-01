@@ -10,8 +10,8 @@
 > restriction.
 >
 > **Step 4.** So for a stiff problem the step can be chosen purely by accuracy
-> considerations for the slow components, and the trapezoidal rule — being
-> second order, unlike implicit Euler — is strictly the better choice.
+> considerations for the slow components, and the trapezoidal rule, being
+> second order unlike implicit Euler, is strictly the better choice.
 >
 > **Step 5.** Part 3 has no counterexample: the method handles
 > $\lambda = -10^{6}$, $h = 0.1$ without difficulty.
@@ -19,13 +19,13 @@
 ## Where it breaks
 
 **Step 4-5**, which read A-stability as "handles stiff problems well".
-A-stability is the statement $|R(z)| \le 1$ on the left half-plane, i.e.
-*the numerical solution does not grow*. That is a necessary condition and not a
+A-stability is the statement $|R(z)| \le 1$ on the left half-plane, i.e. *the
+numerical solution does not grow*. That is a necessary condition and not a
 sufficient one.
 
-What a stiff transient requires is that it be **damped**, matching
-$e^{\lambda t} \to 0$ rapidly. That needs $|R(z)| \to 0$ as $z \to -\infty$,
-which is L-stability and which the trapezoidal rule does not have:
+What a stiff transient requires is that it be **damped**, matching $e^{\lambda
+t} \to 0$ rapidly. That needs $|R(z)| \to 0$ as $z \to -\infty$, which is
+L-stability and which the trapezoidal rule does not have:
 
 $$\lim_{z\to-\infty}R(z) = -1 .$$
 
@@ -42,8 +42,8 @@ $\lambda = -10^{6}$, $h = 0.1$, $z = -10^{5}$, $R(z) = -0.99996$:
 
 The exact solution is zero to any precision after one step; the numerical one
 oscillates at amplitude 1 and decays by $4\times10^{-5}$ per step. Step 3 is
-correct — nothing is unstable, $|R| < 1$, the solution is bounded — and Step 4
-is false.
+correct (nothing is unstable, $|R| < 1$, the solution is bounded) and Step 4 is
+false.
 
 ## The deeper point
 
@@ -64,7 +64,7 @@ the behaviour Step 4 expects.
 | A-stable | $|R(z)| \le 1$ on $\operatorname{Re}z \le 0$ | the solution does not **grow** |
 | L-stable | A-stable and $R(z)\to0$ as $z\to-\infty$ | stiff transients are **damped** |
 
-Step 4's conclusion — second order beats first order — is right on the slow
+Step 4's conclusion (second order beats first order) is right on the slow
 components and wrong on the transient, which is exactly why TR-BDF2 exists.
 
 ## Failure mode

@@ -6,14 +6,15 @@ The map $A \mapsto \operatorname{spec}(A)$ is continuous (as a map into
 unordered $n$-tuples) because it factors through the characteristic polynomial.
 
 The eigenvector map is not a map of the same kind. For a given $\lambda$, the
-"eigenvector" is any nonzero element of $\ker(A - \lambda I)$ — a **subspace**,
+"eigenvector" is any nonzero element of $\ker(A - \lambda I)$: a **subspace**,
 not a vector. When the eigenvalue is simple the subspace is one-dimensional and
 a unit vector in it is determined up to a sign, so one can speak of *the*
 eigenvector. When it is degenerate the subspace has dimension $> 1$ and there
 is no canonical choice at all.
 
 Continuity of the eigenvalues is a statement about roots of a polynomial;
-nothing in it touches the dimension of a null space, which is exactly what jumps.
+nothing in it touches the dimension of a null space, which is exactly what
+jumps.
 
 ## Part 2: the witness
 
@@ -37,16 +38,16 @@ $C(\epsilon)$ has trace 2 and determinant $1 - \epsilon^2$, so its eigenvalues
 solve $\mu^2 - 2\mu + 1 - \epsilon^2 = 0$, giving $\mu = 1 \pm \epsilon$.
 
 **The two families have identical spectra.** Both converge to $\{1,1\}$, each
-eigenvalue moving by exactly $\epsilon = \|E\|_2$ — attaining the Weyl bound.
+eigenvalue moving by exactly $\epsilon = \|E\|_2$: attaining the Weyl bound.
 
 ### (3) the eigenvectors do not converge to each other
 
-For $B(\epsilon)$, the larger eigenvalue $1+\epsilon$ has eigenvector $e_1 = (1,0)$
-— independent of $\epsilon$.
+For $B(\epsilon)$, the larger eigenvalue $1+\epsilon$ has eigenvector $e_1 =
+(1,0)$: independent of $\epsilon$.
 
 For $C(\epsilon)$: $(C - (1+\epsilon)I)v = \begin{pmatrix}-\epsilon &
-\epsilon\\ \epsilon & -\epsilon\end{pmatrix}v = 0$ gives $v_1 = v_2$, so
-$v = (1,1)/\sqrt2$ — also independent of $\epsilon$.
+\epsilon\\ \epsilon & -\epsilon\end{pmatrix}v = 0$ gives $v_1 = v_2$, so $v =
+(1,1)/\sqrt2$: also independent of $\epsilon$.
 
 The angle between the two lines is
 
@@ -69,8 +70,8 @@ the set of limit points is the whole unit circle.
 
 Normalising to unit length leaves $v \mapsto -v$; comparing *lines* removes
 even that. The two limits here are $45°$ apart, which is neither $0°$ nor
-$180°$, so no choice of sign, phase or normalisation reconciles them. This is
-a genuine failure of continuity, not a labelling artefact.
+$180°$, so no choice of sign, phase or normalisation reconciles them. This is a
+genuine failure of continuity, not a labelling artefact.
 
 ## Part 3: what is continuous
 
@@ -78,15 +79,15 @@ a genuine failure of continuity, not a labelling artefact.
 **separated group** of eigenvalues.
 
 Here the group $\{1+\epsilon, 1-\epsilon\}$ is the whole spectrum, and its
-spectral projector is $I$ for both families and for the limit — continuous, and
+spectral projector is $I$ for both families and for the limit: continuous, and
 trivially so. The individual one-dimensional eigenspaces are not a separated
 group as $\epsilon \to 0$, which is exactly why they misbehave.
 
-Informally (Kato; Stewart-Sun, *Matrix Perturbation Theory*, Ch. V): if a
-group of eigenvalues is separated from the rest of the spectrum by a gap
-$\delta$, then the spectral projector onto the corresponding invariant subspace
-is Lipschitz in the perturbation with constant $O(1/\delta)$. Eigenvalues may
-move freely **within** the group without affecting it.
+Informally (Kato; Stewart-Sun, *Matrix Perturbation Theory*, Ch. V): if a group
+of eigenvalues is separated from the rest of the spectrum by a gap $\delta$,
+then the spectral projector onto the corresponding invariant subspace is
+Lipschitz in the perturbation with constant $O(1/\delta)$. Eigenvalues may move
+freely **within** the group without affecting it.
 
 So the object with good perturbation theory is the invariant subspace of a
 cluster, not the eigenvector of an individual eigenvalue inside it.

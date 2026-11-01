@@ -25,28 +25,28 @@ than double precision can represent as a ratio.
 Two separate things go wrong, both in the same place:
 
 **(i) The matrix is already perturbed.** $(H_n)_{ij} = 1/(i+j-1)$ is not
-representable in binary for most $i+j$, so `scipy.linalg.hilbert(n)` is
-$H_n + E$ with $\|E\|_2 \approx u\|H_n\|_2 \approx 2\times10^{-16}$. By Weyl's
+representable in binary for most $i+j$, so `scipy.linalg.hilbert(n)` is $H_n +
+E$ with $\|E\|_2 \approx u\|H_n\|_2 \approx 2\times10^{-16}$. By Weyl's
 inequality every eigenvalue moves by up to that amount. For $n = 20$ the true
-$\lambda_{\min}$ is around $10^{-19}$ — a hundred times *smaller* than the
+$\lambda_{\min}$ is around $10^{-19}$: a hundred times *smaller* than the
 perturbation introduced by writing the matrix down. The computed
 $\lambda_{\min}$ has no significant digits.
 
 **(ii) The ratio saturates.** Once $\lambda_{\min}$ is at the noise floor,
-$\kappa_2$ is measured as roughly $\|H_n\|_2/(u\|H_n\|_2) = 1/u \approx 10^{16}$
-and stops growing. The $\kappa$ values for $n = 14, \dots, 20$ are all around
-$10^{16}$ to $10^{18}$ regardless of $n$, which is what pulls the fitted slope
-down from $3.53$ to $2.3$.
+$\kappa_2$ is measured as roughly $\|H_n\|_2/(u\|H_n\|_2) = 1/u \approx
+10^{16}$ and stops growing. The $\kappa$ values for $n = 14, \dots, 20$ are all
+around $10^{16}$ to $10^{18}$ regardless of $n$, which is what pulls the fitted
+slope down from $3.53$ to $2.3$.
 
 So Step 4's conclusion is exactly backwards: the measurement did not show the
 formula overestimates, it showed the measurement saturated.
 
 ## The correct measurement
 
-Restrict the fit to the range where the computation is meaningful,
-$2 \le n \le 13$, and compute the eigenvalues from the **exact rational**
-entries at extended precision. That gives a slope of $3.5306$ against the
-theoretical $3.5255$, agreeing to 0.15 %.
+Restrict the fit to the range where the computation is meaningful, $2 \le n \le
+13$, and compute the eigenvalues from the **exact rational** entries at
+extended precision. That gives a slope of $3.5306$ against the theoretical
+$3.5255$, agreeing to 0.15 %.
 
 The diagnostic that flags the problem without knowing the answer: plot the
 residuals of the fit. A clean exponential gives residuals at the level of the
@@ -57,10 +57,10 @@ The cheaper diagnostic: **any reported condition number within a factor of ten
 of $1/u$ should be read as a lower bound.** `numpy` will happily return
 $2\times10^{17}$ for a matrix whose true condition number is $10^{25}$; there
 is no warning, because there is nothing anomalous about the floating-point
-computation — it faithfully reports the condition number of the matrix it was
+computation: it faithfully reports the condition number of the matrix it was
 given, which is not the matrix that was meant.
 
 ## Failure mode
 
-`measurement-beyond-precision`: a quantity is measured in arithmetic that cannot
-represent it, and the saturated value is treated as data.
+`measurement-beyond-precision`: a quantity is measured in arithmetic that
+cannot represent it, and the saturated value is treated as data.

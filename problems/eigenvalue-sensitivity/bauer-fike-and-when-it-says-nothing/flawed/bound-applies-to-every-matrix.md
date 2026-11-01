@@ -21,8 +21,8 @@
 
 ## Where it breaks
 
-**Step 4**, at the point where $V$ is obtained. Bauer-Fike requires
-$A = V\Lambda V^{-1}$ — a genuine diagonalisation. $J_{16}$ is **not
+**Step 4**, at the point where $V$ is obtained. Bauer-Fike requires $A =
+V\Lambda V^{-1}$: a genuine diagonalisation. $J_{16}$ is **not
 diagonalisable**: its eigenvalue 0 has algebraic multiplicity 16 and geometric
 multiplicity 1, so no such $V$ exists.
 
@@ -36,7 +36,7 @@ exist.
 ## Why the number in Step 5 is meaningless
 
 $\kappa_2(V) \approx 3\times10^{16} \approx 1/u$. That is not a property of
-$J_{16}$ — it is the conditioning of a numerically-singular matrix, determined
+$J_{16}$: it is the conditioning of a numerically-singular matrix, determined
 by the rounding errors that broke the exact parallelism of the columns. Compute
 it in a different precision and it changes by whatever that precision is; it
 has no limit as the computation is refined.
@@ -47,7 +47,7 @@ a factor of 30. But:
 
 * the bound would be 3 for **any** $\|E\|_2 = 10^{-16}$, regardless of $n$,
   since $\kappa_2(V) \approx 1/u$ whatever $n$ is;
-* the true shifts are $10^{-8}$, $10^{-2}$ and $10^{-1}$ for $n = 2, 8, 16$ —
+* the true shifts are $10^{-8}$, $10^{-2}$ and $10^{-1}$ for $n = 2, 8, 16$:
   seven orders of magnitude apart, all "predicted" by the same number 3.
 
 A quantity that returns the same answer for cases that differ by $10^{7}$ is
@@ -56,8 +56,7 @@ not predicting anything.
 ## The correct answer to Part 4
 
 Bauer-Fike asserts **nothing** about $J_n$, because its hypothesis fails. The
-exact sensitivity is known by other means:
-$|\lambda| = \epsilon^{1/n}$ exactly
+exact sensitivity is known by other means: $|\lambda| = \epsilon^{1/n}$ exactly
 (`jordan-block-perturbation-is-epsilon-to-the-one-over-n`), and the right
 general tool is the pseudospectrum, which requires no diagonalisability.
 

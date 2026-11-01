@@ -8,7 +8,7 @@ summary: >
   Lyapunov's first method settles stability when every eigenvalue of the
   Jacobian has nonzero real part, and says nothing when any has real part zero.
   The pair x' = -x^3 and x' = +x^3 have identical linearisations and opposite
-  stability -- one asymptotically stable, the other blowing up in finite time.
+  stability: one asymptotically stable, the other blowing up in finite time.
 tags: [lyapunov-first-method, hyperbolic, critical-case, finite-time-blowup]
 flawed:
   - name: zero-eigenvalue-means-neutral

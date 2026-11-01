@@ -99,7 +99,7 @@ def decay_is_algebraic_not_exponential():
 
     The approach to the asymptote is itself checked rather than assumed: the
     exact ratio to 1/sqrt(2t) is sqrt(2 x_0^2 t / (1 + 2 x_0^2 t)), which at
-    x_0 = 0.01, t = 1e6 is sqrt(200/201) = 0.99751 -- not 1. Comparing against
+    x_0 = 0.01, t = 1e6 is sqrt(200/201) = 0.99751: not 1. Comparing against
     the asymptote with a tight tolerance would flag correct behaviour as a
     failure; comparing against the closed form does not.
     """

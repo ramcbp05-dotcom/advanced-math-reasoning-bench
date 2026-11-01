@@ -3,7 +3,7 @@
 
 Part 2 is checked in exact rational arithmetic, so those checks are proof of
 what they assert about particular n. Part 3 fits a growth constant over
-2 <= n <= 13, which is evidence and not proof -- the asymptotic law is Szego's
+2 <= n <= 13, which is evidence and not proof: the asymptotic law is Szego's
 theorem and is not established here.
 """
 
